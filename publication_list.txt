@@ -1,0 +1,48 @@
+#####  journal paper
+
+S. Dong, Y. Li, J. Lu, Z. Zhang, C. Gu and J. Mao, "Accurate Detection of Doppler Cardiograms With a Parameterized Respiratory Filter Technique Using a K-Band Radar Sensor," in IEEE Transactions on Microwave Theory and Techniques, vol. 71, no. 1, pp. 71-82, Jan. 2023, doi: 10.1109/TMTT.2022.3184019.
+
+Y. Li, C. Gu and J. Mao, "4-D Gesture Sensing Using Reconfigurable Virtual Array Based on a 60-GHz FMCW MIMO Radar Sensor," in IEEE Transactions on Microwave Theory and Techniques, vol. 70, no. 7, pp. 3652-3665, July 2022, doi: 10.1109/TMTT.2022.3174075.
+
+J. Liu, Y. Li and C. Gu, "Solving Phase Ambiguity in Interferometric Displacement Measurement With Millimeter-Wave FMCW Radar Sensors," in IEEE Sensors Journal, vol. 22, no. 9, pp. 8482-8489, 1 May1, 2022, doi: 10.1109/JSEN.2022.3158657.
+
+J. Liu, J. Lu, Y. Li, C. Gu and J. Mao, "Mitigation of Leakage and Stationary Clutters in Short-Range FMCW Radar With Hybrid Analog and Digital Compensation Technique," in IEEE Transactions on Microwave Theory and Techniques, vol. 70, no. 1, pp. 62-73, Jan. 2022, doi: 10.1109/TMTT.2021.3119345.
+
+J. Liu, Y. Li, C. Li, C. Gu and J. -F. Mao, "Accurate Measurement of Human Vital Signs With Linear FMCW Radars Under Proximity Stationary Clutters," in IEEE Transactions on Biomedical Circuits and Systems, vol. 15, no. 6, pp. 1393-1404, Dec. 2021, doi: 10.1109/TBCAS.2021.3123830.
+
+W. Xu, Y. Li, C. Gu and J. -F. Mao, "Large Displacement Motion Interferometry With Modified Differentiate and Cross-Multiply Technique," in IEEE Transactions on Microwave Theory and Techniques, vol. 69, no. 11, pp. 4879-4890, Nov. 2021, doi: 10.1109/TMTT.2021.3103576.
+
+
+
+
+##### conference paper
+
+S. Dong et al., "COVID-SENSE: Radar-Based Remote Respiratory Disorder Detection in Clinical Environment," 2023 IEEE MTT-S International Wireless Symposium (IWS), Qingdao, China, 2023, pp. 1-3, doi: 10.1109/IWS58240.2023.10222219.
+
+W. Li, Y. Li, J. Zhang, J. Lu, C. Gu and J. Mao, "A Receiver Reconfigurable Method for Indoor Human Detection with 60GHz MIMO FMCW Radar," 2023 IEEE MTT-S International Wireless Symposium (IWS), Qingdao, China, 2023, pp. 1-4, doi: 10.1109/IWS58240.2023.10222158.
+
+J. Zhang, Y. Li, W. Li, Z. Zhang, C. Gu and J. Mao, "Multi-Chirps Convolution Technique for Range Spectrum Signal Enhancement Based on a 60-GHz MIMO FMCW Radar," 2023 IEEE MTT-S International Wireless Symposium (IWS), Qingdao, China, 2023, pp. 1-3, doi: 10.1109/IWS58240.2023.10222617.
+
+W. Li et al., "A Feature-based Filtering Algorithm with 60GHz MIMO FMCW Radar for Indoor Detection and Trajectory Tracking," 2023 IEEE/MTT-S International Microwave Symposium - IMS 2023, San Diego, CA, USA, 2023, pp. 427-430, doi: 10.1109/IMS37964.2023.10188205.
+
+J. Liu, Z. Zhang, J. Lu, Y. Li, C. Gu and J. -F. Mao, "A High-efficiency and High-accuracy Distance Measurement Technique Based on Phase Differentiation and Accumulation with FMCW radars," 2023 IEEE/MTT-S International Microwave Symposium - IMS 2023, San Diego, CA, USA, 2023, pp. 521-524, doi: 10.1109/IMS37964.2023.10188183.
+
+S. Dong et al., "Accurate Fast Heartrate Detection Based on Fourier Bessel Series Expansion During Radar-based Sleep Monitoring," 2023 IEEE/MTT-S International Microwave Symposium - IMS 2023, San Diego, CA, USA, 2023, pp. 1196-1199, doi: 10.1109/IMS37964.2023.10188051.
+
+Y. Li, J. Lu, S. Dong, C. Gu and J. Mao, "Temporal-Spatial Equivalent Virtual Array Technique for Accurate Vital Sign Monitoring," 2023 IEEE/MTT-S International Microwave Symposium - IMS 2023, San Diego, CA, USA, 2023, pp. 1093-1096, doi: 10.1109/IMS37964.2023.10188121.
+
+Y. Li, C. Gu and J. Mao, "An In-Vehicle Occupant Detection Technique Based on a 60 GHz FMCW MIMO Radar," 2022 IEEE MTT-S International Wireless Symposium (IWS), Harbin, China, 2022, pp. 1-3, doi: 10.1109/IWS55252.2022.9977812. 
+
+
+L. Wen, Y. Li, Y. Ye, C. Gu and J. -F. Mao, "Audio Recovery via Noncontact Vibration Detection with 120 GHz Millimeter-Wave Radar Sensing," 2021 International Conference on Microwave and Millimeter Wave Technology (ICMMT), Nanjing, China, 2021, pp. 1-3, doi: 10.1109/ICMMT52847.2021.9618462.
+
+L. Wen, Y. Li, Y. Ye, C. Gu and J. -F. Mao, "Audio Recovery via Noncontact Vibration Detection with 120 GHz Millimeter-Wave Radar Sensing," 2021 International Conference on Microwave and Millimeter Wave Technology (ICMMT), Nanjing, China, 2021, pp. 1-3, doi: 10.1109/ICMMT52847.2021.9617945.
+
+Y. Li, C. Gu and J. -F. Mao, "A 4D Gesture Sensing Technique based on Spatiotemporal Detection with a 60 GHz FMCW MIMO Radar," 2021 IEEE MTT-S International Microwave Symposium (IMS), Atlanta, GA, USA, 2021, pp. 462-465, doi: 10.1109/IMS19712.2021.9574875.
+
+F. Tong, Y. Li, C. Gu and J. -F. Mao, "A Portable 5.8 GHz Radar Sensor with an Integreted Common-Aperture Single Antenna for Noncontact Physiological Monitoring," 2021 IEEE MTT-S International Wireless Symposium (IWS), Nanjing, China, 2021, pp. 1-3, doi: 10.1109/IWS52775.2021.9499347.
+
+F. Tong, Y. Li, C. Gu and J. -F. Mao, "A Portable 5.8 GHz Radar Sensor with an Integreted Common-Aperture Single Antenna for Noncontact Physiological Monitoring," 2021 IEEE MTT-S International Wireless Symposium (IWS), Nanjing, China, 2021, pp. 1-3, doi: 10.1109/IWS52775.2021.9499533.
+
+K. Wu, C. Shi, Y. Li, C. Gu and Jinjing, "An Adaptive Kalman Filter based Digital Phase Detector for All Digital Phase-Locked Loop," 2021 IEEE MTT-S International Wireless Symposium (IWS), Nanjing, China, 2021, pp. 1-3, doi: 10.1109/IWS52775.2021.9499674.
+
