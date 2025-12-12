@@ -686,6 +686,9 @@
                         if (data.settings.color) {
                             localStorage.setItem('colorSettings', JSON.stringify(data.settings.color));
                         }
+                        if (data.settings.font) {
+                            localStorage.setItem('fontSettings', JSON.stringify(data.settings.font));
+                        }
                     }
                     
                     // 提取主数据（排除 publications 和 settings）
@@ -783,6 +786,7 @@
             
             // 在渲染前重新加载设置（因为可能从 JSON 文件中更新了 localStorage）
             loadColorSettings();
+            loadFontSettings();
             loadSiteSettings();
             
             renderPage();
@@ -1161,6 +1165,16 @@
             document.documentElement.style.setProperty('--primary-color-rgb', `${r}, ${g}, ${b}`);
         }
 
+        // 加载字号设置
+        function loadFontSettings() {
+            const fontSettings = JSON.parse(localStorage.getItem('fontSettings') || '{"baseFontSize": 16}');
+            const baseFontSize = fontSettings.baseFontSize || 16;
+            
+            // 设置 body 的基础字号
+            document.body.style.fontSize = baseFontSize + 'px';
+            console.log('✅ 字号已设置为:', baseFontSize + 'px');
+        }
+
         // 加载网站设置
         function loadSiteSettings() {
             const siteSettings = JSON.parse(localStorage.getItem('siteSettings') || '{}');
@@ -1188,6 +1202,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             loadColorSettings();
+            loadFontSettings();
             loadSiteSettings();
             loadData();
         });

@@ -837,6 +837,9 @@
       "favicon": "",
       "headerTitle": ""
     },
-    "color": {}
+    "color": {},
+    "font": {
+      "baseFontSize": 14
+    }
   }
 }
