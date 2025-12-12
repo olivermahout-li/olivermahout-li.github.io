@@ -780,6 +780,11 @@
             }
             
             console.log('🎉 准备渲染页面，siteData:', siteData);
+            
+            // 在渲染前重新加载设置（因为可能从 JSON 文件中更新了 localStorage）
+            loadColorSettings();
+            loadSiteSettings();
+            
             renderPage();
         }
 
@@ -1143,7 +1148,7 @@
         // 加载配色设置
         function loadColorSettings() {
             const colorSettings = JSON.parse(localStorage.getItem('colorSettings') || '{"primaryColor": "#AA060A"}');
-            const primaryColor = colorSettings.primaryColor;
+            const primaryColor = colorSettings.primaryColor || '#AA060A';  // 添加默认值
             
             // 设置主色调
             document.documentElement.style.setProperty('--primary-color', primaryColor);
