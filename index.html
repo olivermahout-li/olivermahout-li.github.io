@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">李予琛 - Yuchen Li - Academic Homepage</title>
+    <link rel="icon" id="favicon" type="image/x-icon" href="images/logo/logo-li.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #AA060A;
+            --primary-color-rgb: 170, 6, 10;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #000000 100%);
+            min-height: 100vh;
+            padding: 60px 60px 80px 60px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: visible;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #000000 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .header-logo {
+            height: 60px;
+            width: auto;
+            opacity: 0.95;
+            transition: opacity 0.3s;
+        }
+
+        .header-logo:hover {
+            opacity: 1;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: -1px;
+            background: rgba(248, 249, 250, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-bottom: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+            font-weight: 700;
+            background: rgba(var(--primary-color-rgb), 0.1);
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 180px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 6px;
+            padding: 8px 0;
+            z-index: 1001;
+            top: 100%;
+            left: 0;
+            margin-top: 5px;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-content {
+            display: block;
+        }
+
+        .nav-dropdown-content a {
+            color: var(--primary-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9em;
+            border-radius: 0;
+        }
+
+        .nav-dropdown-content a:hover {
+            background: rgba(var(--primary-color-rgb), 0.12);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            font-weight: 700;
+        }
+
+        .bio-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .bio-image-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .bio-image {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            aspect-ratio: 5/6;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .bio-text {
+            flex: 2;
+            line-height: 1.8;
+            font-weight: 600;
+        }
+
+        .bio-text p {
+            font-weight: 600;
+        }
+
+        .bio-text h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .bio-text h3 {
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .bio-text p {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .bio-text a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .bio-text a:hover {
+            text-decoration: underline;
+        }
+
+        .timeline-item strong {
+            color: var(--primary-color);
+        }
+
+        .timeline-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .timeline-item a:hover {
+            text-decoration: underline;
+        }
+
+        .news-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+
+        .bio-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .bio-link-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, var(--primary-color, var(--primary-color)) 0%, #000000 100%);
+            color: white !important;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 2px 6px rgba(var(--primary-color-rgb), 0.3);
+        }
+
+        .bio-link-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.5);
+            color: white !important;
+        }
+
+        .timeline-item, .news-item, .award-item-new {
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 20px;
+            align-items: center;
+            transition: all 0.3s;
+            min-height: 60px;
+        }
+
+        .timeline-item:hover, .news-item:hover, .award-item-new:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-date {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #000000 100%);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95em;
+            box-shadow: 0 3px 8px rgba(var(--primary-color-rgb), 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 45px;
+        }
+
+        .item-content {
+            color: #333;
+            line-height: 1.7;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .item-content-text {
+            flex: 1;
+        }
+
+        /* Biography和Awards中的item-content不使用flex布局，保持文字inline */
+        .timeline-item .item-content {
+            display: block;
+        }
+
+        .award-item-new .item-content {
+            display: block;
+        }
+
+        /* News中的item-content使用flex布局（因为有图片） */
+        .news-item .item-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .item-image {
+            max-width: 300px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .item-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .publication-item {
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .publication-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .publication-number {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            width: 26px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .publication-citation {
+            font-size: 0.92em;
+            line-height: 1.6;
+        }
+
+        .publication-meta {
+            margin-top: 6px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .badge-position-1 {
+            background: #ff6b6b;
+            color: white;
+            font-weight: 600;
+        }
+
+        .badge-position-2 {
+            background: #ffa502;
+            color: white;
+            font-weight: 500;
+        }
+
+        .badge-position-3 {
+            background: #ffd32a;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .badge-position-other {
+            background: #ffeaa7;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .badge-type {
+            background: #dfe6e9;
+            color: #2d3436;
+        }
+
+        .badge-level {
+            background: #ffeaa7;
+            color: #e17055;
+        }
+
+        .publication-doi-link {
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        .publication-url-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.85em;
+        }
+
+        .publication-url-link:hover {
+            text-decoration: underline;
+        }
+
+        .author-highlight {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .publication-remark {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: 5px;
+            font-size: 0.85em;
+        }
+
+
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #000000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 28px;
+            font-weight: bold;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            z-index: 999;
+            transform: rotate(-90deg);
+        }
+
+        #backToTop:hover {
+            background: #8a0508;
+            transform: rotate(-90deg) translateX(-3px);
+            box-shadow: 0 6px 20px rgba(var(--primary-color-rgb), 0.5);
+        }
+
+        #backToTop.show {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            .header-logos {
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+
+            .header-logo {
+                height: 45px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .bio-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .bio-image-wrapper {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .bio-image {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .bio-text {
+                width: 100%;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            .bio-text p {
+                font-weight: 600;
+            }
+
+            .bio-links {
+                justify-content: center;
+            }
+
+            .content {
+                padding: 20px 15px;
+            }
+
+            .timeline-item, .news-item, .award-item-new {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 12px 15px;
+            }
+
+            .news-item .item-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .item-date {
+                text-align: left;
+                padding: 6px 10px;
+                min-height: 35px;
+            }
+
+            .item-image {
+                max-width: 100%;
+            }
+
+            #backToTop {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-logos">
+                <img src="images/logo/SJTU02.svg" alt="SJTU Logo" class="header-logo" onerror="this.style.display='none'">
+                <img src="images/logo/new_logo1-raw.png" alt="Lab Logo" class="header-logo" onerror="this.style.display='none'">
+            </div>
+            <h1 id="headerTitle">李予琛</h1>
+            <p class="subtitle">Yuchen Li (Y. Li) - Academic Homepage</p>
+        </header>
+
+        <nav>
+            <a href="#biography" class="nav-link">Home</a>
+            <a href="#research" class="nav-link">Research</a>
+            <a href="#news" class="nav-link">News</a>
+            <div class="nav-dropdown">
+                <a href="#publications" class="nav-link">Publications ▾</a>
+                <div class="nav-dropdown-content">
+                    <a href="#pub-journal">Journal Papers</a>
+                    <a href="#pub-conference">Conference Papers</a>
+                    <a href="#pub-book">Book Chapters</a>
+                    <a href="#pub-patent">Patents</a>
+                </div>
+            </div>
+            <a href="#awards" class="nav-link">Honors</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="content" id="contentArea"></div>
+
+        <footer>
+            <p>&copy; <span id="currentYear"></span> Yuchen Li. All rights reserved.</p>
+            <p>
+                <a href="main_admin.html">Console</a>
+            </p>
+        </footer>
+    </div>
+
+    <button id="backToTop" onclick="scrollToTop()" title="返回顶部">&gt;</button>
+
+    <script>
+        let siteData = {};
+
+        // 加载数据（优先JSON，失败则使用localStorage）
+        async function loadData() {
+            // 首先尝试加载JSON文件（用于GitHub Pages）
+            try {
+                const response = await fetch('data/siteData.json');
+                if (response.ok) {
+                    siteData = await response.json();
+                    console.log('✅ 数据已从JSON文件加载');
+                    renderPage();
+                    return;
+                }
+            } catch (error) {
+                console.log('⚠️ JSON文件加载失败，尝试使用localStorage');
+            }
+            
+            // JSON加载失败，使用localStorage（用于本地）
+            const data = localStorage.getItem('academicSiteData');
+            if (data) {
+                siteData = JSON.parse(data);
+                console.log('✅ 数据已从localStorage加载');
+            } else {
+                console.log('ℹ️ 使用默认数据');
+                // 使用默认数据
+                siteData = {
+                    basicInfo: {
+                        name: '李予琛',
+                        nameEn: 'Yuchen Li (Y. Li)',
+                        title: 'Postdoctoral Research Fellow',
+                        institution: 'Shanghai Jiao Tong University',
+                        email: 'liyuchen@sjtu.edu.cn',
+                        office: '3F AI Institute, 930 Jianchuan RD, Shanghai 200240, China',
+                        photo: 'images/people/lyc.png',
+                        links: {
+                            ieee: 'https://ieeexplore.ieee.org/author/37088936694',
+                            researchgate: 'https://www.researchgate.net/profile/Yuchen-Li-63',
+                            scholar: 'https://scholar.google.com/citations?user=kKnwwSoAAAAJ'
+                        }
+                    },
+                    biography: [
+                        { date: 'Jun. 2025 - Now', content: 'Join <strong><a href="https://hi-rfskl.szu.edu.cn/">Shanghai Jiao Tong University</a></strong> (State Key Laboratory of Radio Frequency Heterogeneous Integration) as a Postdoctoral Research Fellow, with the supervisor of Professor Jun-Fa Mao.' },
+                        { date: 'Jun. 2022 - Now', content: 'Co-founder & CTO of <a href="http://hecaray.com">Hecaray Technology</a>, a start-up company dedicated to safeguarding healthy living with millimeter-wave technology.' },
+                        { date: 'Sep. 2020 - Jun. 2025', content: 'Receive my Ph.D. degree in <strong>Electronic Science and Technology</strong>, Shanghai Jiao Tong University without entrance examination following professor Changzhan Gu.' }
+                    ],
+                    research: 'Short-range radar sensor and sensing systems, new concept human-computer interaction (HCI), radar-based vital sign detection, wireless sensing and its various applications in AI/AR/Biomedical/IoT.',
+                    news: [
+                        { date: '2025-12', content: 'One paper on millimeter-wave radar motion sensing is accepted by T-MTT! Congrats to Zhiwei!' }
+                    ],
+                    publications: [],
+                    awards: [
+                        { year: '2025', content: 'IEEE Graduate Student Fellowship, Tom Brazil Award (国内首次)' },
+                        { year: '2024', content: 'IEEE APCAP Best Student Paper, Second Place Winner' }
+                    ]
+                };
+            }
+            renderPage();
+        }
+
+        // 渲染页面
+        function renderPage() {
+            const contentArea = document.getElementById('contentArea');
+            let html = '';
+
+            // Biography Section
+            html += `
+                <section id="biography" class="section">
+                    <h2 class="section-title">Biography</h2>
+                    <div class="bio-container">
+                        ${siteData.basicInfo.photo ? `<div class="bio-image-wrapper"><img src="${siteData.basicInfo.photo}" alt="${siteData.basicInfo.name}" class="bio-image" onerror="this.parentElement.style.display='none'"></div>` : ''}
+                        <div class="bio-text">
+                            <h2 style="margin-bottom: 10px;">${siteData.basicInfo.nameEn}</h2>
+                            <p style="font-size: 1.05em; margin-bottom: 10px;">
+                                Postdoctoral Research Fellow, <a href="https://changzhan.sjtu.edu.cn/" target="_blank" style="font-weight: 600; color: var(--primary-color);">Microwave Wireless Sensing Lab</a>
+                            </p>
+                            <p style="line-height: 1.8; margin-bottom: 10px;">
+                                <a href="https://icisee.sjtu.edu.cn/" target="_blank" style="font-weight: 600;">Department of Electronic Engineering</a>, 
+                                <a href="https://ai.sjtu.edu.cn/" target="_blank" style="font-weight: 600;">Artificial Intelligence Institute</a>, 
+                                <a href="http://www.sjtu.edu.cn/" target="_blank" style="font-weight: 600;">Shanghai Jiao Tong University (SJTU)</a>
+                            </p>
+                            <p style="margin-bottom: 8px;">Supervisor: Prof. Changzhan Gu & Prof. Junfa Mao</p>
+                            <p style="margin-bottom: 15px;">E-mail: ${siteData.basicInfo.email.replace('@', ' (at) ').replace(/\./g, ' (dot) ')}</p>
+                            ${siteData.basicInfo.links ? `
+                                <div class="bio-links">
+                                    ${siteData.basicInfo.links.ieee ? `<a href="${siteData.basicInfo.links.ieee}" target="_blank" class="bio-link-tag">IEEE Homepage</a>` : ''}
+                                    ${siteData.basicInfo.links.scholar ? `<a href="${siteData.basicInfo.links.scholar}" target="_blank" class="bio-link-tag">Google Scholar</a>` : ''}
+                                    ${siteData.basicInfo.links.researchgate ? `<a href="${siteData.basicInfo.links.researchgate}" target="_blank" class="bio-link-tag">ResearchGate</a>` : ''}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                    ${siteData.biography.map(item => `
+                        <div class="timeline-item">
+                            <div class="item-date">${item.date}</div>
+                            <div class="item-content">${item.content}</div>
+                        </div>
+                    `).join('')}
+                </section>
+            `;
+
+            // Research Interests
+            html += `
+                <section id="research" class="section">
+                    <h2 class="section-title">Research Interests</h2>
+                    <p>${siteData.research}</p>
+                </section>
+            `;
+
+            // News
+            html += `
+                <section id="news" class="section">
+                    <h2 class="section-title">News</h2>
+                    ${siteData.news.map(item => `
+                        <div class="news-item">
+                            <div class="item-date">${item.date || 'Recent'}</div>
+                            <div class="item-content">
+                                <div class="item-content-text">${item.content}</div>
+                                ${item.image ? `<img src="${item.image}" alt="News image" class="item-image" onerror="this.style.display='none'">` : ''}
+                            </div>
+                        </div>
+                    `).join('')}
+                </section>
+            `;
+
+            // Publications
+            const publications = JSON.parse(localStorage.getItem('publications') || '[]');
+            const sortedPubs = publications.sort((a, b) => {
+                if (a.authorPosition !== b.authorPosition) return a.authorPosition - b.authorPosition;
+                if (b.year !== a.year) return b.year - a.year;
+                return (b.month || 0) - (a.month || 0);
+            });
+
+            const pubGroups = {
+                'journal': { title: 'Journal Papers', items: [] },
+                'conference': { title: 'Conference Papers', items: [] },
+                'book': { title: 'Book Chapters', items: [] },
+                'patent': { title: 'Patents', items: [] }
+            };
+
+            sortedPubs.forEach(pub => pubGroups[pub.type].items.push(pub));
+
+            html += `<section id="publications" class="section"><h2 class="section-title">Publications</h2>`;
+            
+            const typeIds = {
+                'journal': 'pub-journal',
+                'conference': 'pub-conference',
+                'book': 'pub-book',
+                'patent': 'pub-patent'
+            };
+
+            Object.keys(pubGroups).forEach(type => {
+                const group = pubGroups[type];
+                if (group.items.length > 0) {
+                    html += `<h3 id="${typeIds[type]}" style="color: var(--primary-color); margin-top: 30px; margin-bottom: 15px; padding-top: 10px; font-weight: 600; font-size: 1.4em;">${group.title}</h3>`;
+                    let num = 1;
+                    group.items.forEach(pub => {
+                        html += formatPublication(pub, num++);
+                    });
+                }
+            });
+
+            html += `</section>`;
+
+            // Awards
+            html += `
+                <section id="awards" class="section">
+                    <h2 class="section-title">Awards & Honors</h2>
+                    ${siteData.awards.map(item => `
+                        <div class="award-item-new">
+                            <div class="item-date">${item.year}</div>
+                            <div class="item-content">${item.content}</div>
+                        </div>
+                    `).join('')}
+                </section>
+            `;
+
+            // Contact
+            html += `
+                <section id="contact" class="section">
+                    <h2 class="section-title">Contact</h2>
+                    <p><strong>Email:</strong> ${siteData.basicInfo.email}</p>
+                    <p><strong>Office:</strong> ${siteData.basicInfo.office}</p>
+                </section>
+            `;
+
+            contentArea.innerHTML = html;
+        }
+
+        function formatPublication(pub, number) {
+            const citation = generateCitation(pub);
+            const positionText = getPositionText(pub.authorPosition);
+            const positionClass = getPositionBadgeClass(pub.authorPosition);
+            
+            // 读取显示设置
+            const settings = JSON.parse(localStorage.getItem('publicationSettings') || '{}');
+            const showAuthorPosition = settings.showAuthorPosition !== false;
+            const showJournalLevel = settings.showJournalLevel !== false;
+            const showDOI = settings.showDOI !== false;
+            const showURL = settings.showURL !== false;
+            
+            let metaContent = '';
+            
+            if (showAuthorPosition) {
+                metaContent += `<span class="badge ${positionClass}">${positionText}</span>`;
+            }
+            
+            metaContent += `<span class="badge badge-type">${getTypeText(pub.type)}</span>`;
+            
+            if (showDOI && pub.doi) {
+                metaContent += `<span class="publication-doi-link">DOI: ${pub.doi}</span>`;
+            }
+            
+            if (showURL && pub.url) {
+                metaContent += `<a href="${pub.url}" target="_blank" class="publication-url-link">🔗 Link</a>`;
+            }
+            
+            if (showJournalLevel && pub.type === 'journal' && pub.journalLevel) {
+                metaContent += `<span class="badge badge-level">${pub.journalLevel}</span>`;
+            }
+            
+            // 处理remark：如果有remarkUrl，则添加链接
+            let remarkHtml = '';
+            if (pub.remark) {
+                if (pub.remarkUrl) {
+                    remarkHtml = `<div class="publication-remark">🏆 <a href="${pub.remarkUrl}" target="_blank" style="color: inherit; text-decoration: underline;">${pub.remark}</a></div>`;
+                } else {
+                    remarkHtml = `<div class="publication-remark">🏆 ${pub.remark}</div>`;
+                }
+            }
+            
+            return `
+                <div class="publication-item">
+                    <span class="publication-number">${number}</span>
+                    <div style="display: inline-block; width: calc(100% - 50px); vertical-align: top;">
+                        <div class="publication-citation">${citation}</div>
+                        <div class="publication-meta">
+                            ${metaContent}
+                        </div>
+                        ${remarkHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateCitation(pub) {
+            let citation = '';
+            
+            const authorPosition = pub.authorPosition;
+            const formattedAuthors = pub.authors.map((author, index) => {
+                if (index === authorPosition - 1) {
+                    return `<span class="author-highlight">${author}</span>`;
+                }
+                return author;
+            });
+            
+            let authorsStr = '';
+            if (formattedAuthors.length === 1) {
+                authorsStr = formattedAuthors[0];
+            } else if (formattedAuthors.length === 2) {
+                authorsStr = formattedAuthors[0] + ' and ' + formattedAuthors[1];
+            } else {
+                authorsStr = formattedAuthors.slice(0, -1).join(', ') + ' and ' + formattedAuthors[formattedAuthors.length - 1];
+            }
+            
+            citation += `${authorsStr}. `;
+            citation += `<em>"${pub.title}"</em>. `;
+            
+            const monthNames = ['', 'January', 'February', 'March', 'April', 'May', 'June', 
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            const dateStr = pub.month ? `${monthNames[pub.month]} ${pub.year}` : `${pub.year}`;
+            
+            switch (pub.type) {
+                case 'journal':
+                    citation += `<strong>${pub.venue}</strong>`;
+                    if (pub.volume) citation += `, vol. ${pub.volume}`;
+                    if (pub.issue) citation += `, no. ${pub.issue}`;
+                    if (pub.pages) citation += `, pp. ${pub.pages}`;
+                    citation += `, ${dateStr}.`;
+                    break;
+                case 'conference':
+                    citation += `in <strong>${pub.venue}</strong>`;
+                    if (pub.confCity || pub.confCountry) {
+                        const location = [pub.confCity, pub.confCountry].filter(Boolean).join(', ');
+                        citation += ` (${location})`;
+                    }
+                    if (pub.pages) citation += `, pp. ${pub.pages}`;
+                    citation += `, ${dateStr}.`;
+                    break;
+                case 'book':
+                    citation += `in <strong>${pub.venue}</strong>`;
+                    if (pub.chapter) citation += `, ${pub.chapter}`;
+                    if (pub.pages) citation += `, pp. ${pub.pages}`;
+                    citation += `, ${dateStr}.`;
+                    break;
+                case 'patent':
+                    citation += `<strong>${pub.venue}</strong>`;
+                    if (pub.patentNumber) citation += `, ${pub.patentNumber}`;
+                    if (pub.patentStatus) citation += ` [${pub.patentStatus}]`;
+                    citation += `, ${dateStr}.`;
+                    break;
+            }
+            
+            return citation;
+        }
+
+        function getPositionText(position) {
+            const chineseNumbers = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+            if (position <= 10) {
+                return `第${chineseNumbers[position]}作者`;
+            }
+            return `第${position}作者`;
+        }
+
+        function getPositionBadgeClass(position) {
+            if (position === 1) return 'badge-position-1';
+            if (position === 2) return 'badge-position-2';
+            if (position === 3) return 'badge-position-3';
+            return 'badge-position-other';
+        }
+
+        function getTypeText(type) {
+            const types = { 'journal': 'Journal', 'conference': 'Conference', 'book': 'Book', 'patent': 'Patent' };
+            return types[type] || type;
+        }
+
+        // 平滑滚动
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('nav-link') || e.target.closest('a')) {
+                const link = e.target.classList.contains('nav-link') ? e.target : e.target.closest('a');
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const navHeight = document.querySelector('nav').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            }
+        });
+
+        // 滚动时高亮导航栏
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id], h3[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            const navHeight = document.querySelector('nav').offsetHeight;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navHeight - 50;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href) {
+                    const linkSection = href.substring(1);
+                    // 处理主section和publication子section
+                    if (linkSection === currentSection) {
+                        link.classList.add('active');
+                    } else if (currentSection && currentSection.startsWith('pub-') && linkSection === 'publications') {
+                        link.classList.add('active');
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+
+        // 返回顶部按钮
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 监听滚动事件，控制返回顶部按钮的显示
+        window.addEventListener('scroll', () => {
+            const backToTopBtn = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        // 加载配色设置
+        function loadColorSettings() {
+            const colorSettings = JSON.parse(localStorage.getItem('colorSettings') || '{"primaryColor": "#AA060A"}');
+            const primaryColor = colorSettings.primaryColor;
+            
+            // 设置主色调
+            document.documentElement.style.setProperty('--primary-color', primaryColor);
+            
+            // 将HEX颜色转换为RGB
+            const hex = primaryColor.replace('#', '');
+            const r = parseInt(hex.substring(0, 2), 16);
+            const g = parseInt(hex.substring(2, 4), 16);
+            const b = parseInt(hex.substring(4, 6), 16);
+            document.documentElement.style.setProperty('--primary-color-rgb', `${r}, ${g}, ${b}`);
+        }
+
+        // 加载网站设置
+        function loadSiteSettings() {
+            const siteSettings = JSON.parse(localStorage.getItem('siteSettings') || '{}');
+            
+            // 设置网站标题
+            if (siteSettings.pageTitle) {
+                document.getElementById('pageTitle').textContent = siteSettings.pageTitle;
+            }
+            
+            // 设置favicon
+            if (siteSettings.favicon) {
+                document.getElementById('favicon').href = siteSettings.favicon;
+            }
+            
+            // 设置header标题
+            if (siteSettings.headerTitle) {
+                const headerTitleEl = document.getElementById('headerTitle');
+                if (headerTitleEl) {
+                    headerTitleEl.textContent = siteSettings.headerTitle;
+                }
+            }
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            loadColorSettings();
+            loadSiteSettings();
+            loadData();
+        });
+    </script>
+</body>
+</html>
+

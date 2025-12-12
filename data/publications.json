@@ -1,0 +1,756 @@
+[
+  {
+    "type": "journal",
+    "title": "Feel Your Heartbeat Across Space: Radar-Based Cardiac Activity Monitoring for Healthcare Applications",
+    "authors": [
+      "Y. Li",
+      "S. Dong and C. Gu"
+    ],
+    "authorPosition": 1,
+    "venue": "IEEE Microwave Magazine",
+    "year": 2024,
+    "month": 12,
+    "pages": "91-111",
+    "doi": "10.1109/MMM.2024.3454589",
+    "url": "https://ieeexplore.ieee.org/document/10744817",
+    "volume": "25",
+    "issue": "12",
+    "journalLevel": "中科院3区",
+    "id": "1765506855754"
+  },
+  {
+    "type": "journal",
+    "title": "A Robust and Accurate FMCW MIMO Radar Vital Sign Monitoring Framework With 4-D Cardiac Beamformer and Heart-Rate Trace Carving Technique",
+    "authors": [
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 1,
+    "venue": "IEEE Transactions on Microwave Theory and Techniques",
+    "year": 2024,
+    "month": 10,
+    "pages": "6094-6106",
+    "doi": "10.1109/TMTT.2024.3384288",
+    "url": "https://ieeexplore.ieee.org/document/10516282",
+    "volume": "72",
+    "issue": "10",
+    "journalLevel": "中科院1区TOP",
+    "id": "1765506373519"
+  },
+  {
+    "type": "conference",
+    "title": "4D Vital Sign Detection Based on a 24GHz 2T4R MIMO Radar System",
+    "authors": [
+      "Y. Li",
+      "J. Lu and C. Gu"
+    ],
+    "authorPosition": 1,
+    "venue": "2024 IEEE 12th Asia-Pacific Conference on Antennas and Propagation (APCAP)",
+    "year": 2024,
+    "month": 9,
+    "pages": "1-2",
+    "doi": "10.1109/APCAP62011.2024.10881861",
+    "url": "https://ieeexplore.ieee.org/document/10881861",
+    "remark": "Best Student Paper 2nd Prize",
+    "confCity": "Nanjing",
+    "confCountry": "China",
+    "id": "1765506912170"
+  },
+  {
+    "type": "conference",
+    "title": "A Fast and Efficient FMCW Radar Phase Extraction Technique at Ultra-Narrow Range for Vital Sign Detection",
+    "authors": [
+      "Y. Li",
+      "K. Zheng and C. Gu"
+    ],
+    "authorPosition": 1,
+    "venue": "2024 IEEE/MTT-S International Microwave Symposium - IMS 2024",
+    "year": 2024,
+    "month": 6,
+    "pages": "1057-1060",
+    "doi": "10.1109/IMS40175.2024.10600232",
+    "url": "https://ieeexplore.ieee.org/document/10600232",
+    "remark": "Post-Deadline Paper",
+    "confCity": "Washington, DC",
+    "confCountry": "USA",
+    "id": "1765506453457"
+  },
+  {
+    "type": "conference",
+    "title": "Temporal-Spatial Equivalent Virtual Array Technique for Accurate Vital Sign Monitoring",
+    "authors": [
+      "Y. Li",
+      "J. Lu",
+      "S. Dong",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 1,
+    "venue": "2023 IEEE/MTT-S International Microwave Symposium - IMS 2023",
+    "year": 2023,
+    "month": 6,
+    "pages": "1093-1096",
+    "doi": "10.1109/IMS37964.2023.10188121",
+    "url": "https://ieeexplore.ieee.org/document/10188121",
+    "confCity": "San Diego, CA",
+    "confCountry": "USA",
+    "id": "1765504659659"
+  },
+  {
+    "type": "conference",
+    "title": "An In-Vehicle Occupant Detection Technique Based on a 60 GHz FMCW MIMO Radar",
+    "authors": [
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 1,
+    "venue": "2022 IEEE MTT-S International Wireless Symposium (IWS)",
+    "year": 2022,
+    "month": 6,
+    "pages": "1-3",
+    "doi": "10.1109/IWS55252.2022.9977812",
+    "url": "https://ieeexplore.ieee.org/document/9977812",
+    "confCity": "Harbin",
+    "confCountry": "China",
+    "id": "1765504593613"
+  },
+  {
+    "type": "journal",
+    "title": "4-D Gesture Sensing Using Reconfigurable Virtual Array Based on a 60-GHz FMCW MIMO Radar Sensor",
+    "authors": [
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 1,
+    "venue": "IEEE Transactions on Microwave Theory and Techniques",
+    "year": 2022,
+    "month": 5,
+    "pages": "3652-3665",
+    "doi": "10.1109/TMTT.2022.3174075",
+    "url": "https://ieeexplore.ieee.org/document/9778282",
+    "remark": "Featured Article of IEEE MTT-S Newsletter June 2022 (https://myemail.constantcontact.com/IEEE-MTT-S-Monthly-Newsletter---June-2022-Issue.html?soid=1138323635164&aid=ENMAf-Pmb34)",
+    "volume": "70",
+    "issue": "7",
+    "journalLevel": "中科院1区TOP",
+    "id": "1765504514097"
+  },
+  {
+    "type": "conference",
+    "title": "A 4D Gesture Sensing Technique based on Spatiotemporal Detection with a 60 GHz FMCW MIMO Radar",
+    "authors": [
+      "Y. Li",
+      "C. Gu and J. -F. Mao"
+    ],
+    "authorPosition": 1,
+    "venue": "2021 IEEE MTT-S International Microwave Symposium (IMS)",
+    "year": 2021,
+    "month": 6,
+    "pages": "462-465",
+    "doi": "10.1109/IMS19712.2021.9574875",
+    "url": "https://ieeexplore.ieee.org/document/9574875",
+    "remark": "Student Paper Competition Finalist",
+    "confCity": "Atlanta, GA",
+    "confCountry": "USA",
+    "id": "1765504120754"
+  },
+  {
+    "type": "journal",
+    "title": "Frequency-Spatial Adaptive Digital Beamforming Technique for Range-Angle Decoupling With High-Resolution MIMO Radar",
+    "authors": [
+      "J. Zhang",
+      "Y. Li",
+      "Z. Zhang",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "IEEE Microwave and Wireless Technology Letters",
+    "year": 2025,
+    "month": 6,
+    "pages": "888-891",
+    "doi": "10.1109/LMWT.2025.3557216",
+    "url": "https://ieeexplore.ieee.org/document/10966424",
+    "volume": "35",
+    "issue": "6",
+    "journalLevel": "中科院2区",
+    "id": "1765507021958"
+  },
+  {
+    "type": "journal",
+    "title": "Accurate Multitarget Microwave Cardiogram Sensing With 4-D Digital Beamforming Technique Based on a K-Band Short-Range End-to-End 4T8R Sparse MIMO FMCW Radar System",
+    "authors": [
+      "J. Zhang",
+      "Y. Li",
+      "Y. Cao",
+      "Z. Zhang",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "IEEE Transactions on Microwave Theory and Techniques",
+    "year": 2025,
+    "doi": "10.1109/TMTT.2025.3615997",
+    "url": "https://ieeexplore.ieee.org/document/11195963",
+    "journalLevel": "中科院1区TOP",
+    "id": "1765507202033"
+  },
+  {
+    "type": "journal",
+    "title": "Robust Cardiac Timing Detection Technique With Vectors Analytic Demodulation in Doppler Cardiogram Sensing",
+    "authors": [
+      "S. Dong",
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "IEEE Transactions on Microwave Theory and Techniques",
+    "year": 2024,
+    "month": 8,
+    "pages": "4866-4877",
+    "doi": "10.1109/TMTT.2024.3360469",
+    "url": "https://ieeexplore.ieee.org/document/10431553",
+    "volume": "72",
+    "issue": "8",
+    "journalLevel": "中科院1区TOP",
+    "id": "1765506008526"
+  },
+  {
+    "type": "conference",
+    "title": "A Novel Contactless Concentration Evaluation Technique Using Millimeter-Wave Radar",
+    "authors": [
+      "J. Cao",
+      "Y. Li",
+      "J. Liu and C. Gu"
+    ],
+    "authorPosition": 2,
+    "venue": "2024 International Conference on Microwave and Millimeter Wave Technology (ICMMT)",
+    "year": 2024,
+    "month": 6,
+    "pages": "1-3",
+    "doi": "10.1109/ICMMT61774.2024.10672434",
+    "url": "https://ieeexplore.ieee.org/document/10672434",
+    "confCity": "Bejing",
+    "confCountry": "China",
+    "id": "1765506577997"
+  },
+  {
+    "type": "conference",
+    "title": "A Feature-based Filtering Algorithm with 60GHz MIMO FMCW Radar for Indoor Detection and Trajectory Tracking",
+    "authors": [
+      "W. Li",
+      "Y. Li",
+      "J. Zhang",
+      "J. Lu",
+      "S. Dong",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "2023 IEEE/MTT-S International Microwave Symposium - IMS 2023",
+    "year": 2023,
+    "month": 6,
+    "pages": "427-430",
+    "doi": "10.1109/IMS37964.2023.10188205",
+    "url": "https://ieeexplore.ieee.org/document/10188205",
+    "confCity": "San Diego, CA",
+    "confCountry": "USA",
+    "id": "1765505722855"
+  },
+  {
+    "type": "conference",
+    "title": "Multi-Chirps Convolution Technique for Range Spectrum Signal Enhancement Based on a 60-GHz MIMO FMCW Radar",
+    "authors": [
+      "J. Zhang",
+      "Y. Li",
+      "W. Li",
+      "Z. Zhang",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "2023 IEEE MTT-S International Wireless Symposium (IWS)",
+    "year": 2023,
+    "month": 6,
+    "pages": "1-3",
+    "doi": "10.1109/IWS58240.2023.10222617",
+    "url": "https://ieeexplore.ieee.org/document/10222617",
+    "confCity": "Qingdao",
+    "confCountry": "China",
+    "id": "1765505797161"
+  },
+  {
+    "type": "conference",
+    "title": "A Receiver Reconfigurable Method for Indoor Human Detection with 60GHz MIMO FMCW Radar",
+    "authors": [
+      "W. Li",
+      "Y. Li",
+      "J. Zhang",
+      "J. Lu",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "2023 IEEE MTT-S International Wireless Symposium (IWS)",
+    "year": 2023,
+    "month": 6,
+    "pages": "1-4",
+    "doi": "10.1109/IWS58240.2023.10222158",
+    "url": "https://ieeexplore.ieee.org/document/10222158",
+    "confCity": "Qingdao",
+    "confCountry": "China",
+    "id": "1765505859675"
+  },
+  {
+    "type": "journal",
+    "title": "Accurate Detection of Doppler Cardiograms With a Parameterized Respiratory Filter Technique Using a K-Band Radar Sensor",
+    "authors": [
+      "S. Dong",
+      "Y. Li",
+      "J. Lu",
+      "Z. Zhang",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "IEEE Transactions on Microwave Theory and Techniques",
+    "year": 2022,
+    "month": 7,
+    "pages": "71-82",
+    "doi": "10.1109/TMTT.2022.3184019",
+    "url": "https://ieeexplore.ieee.org/document/9805826",
+    "remark": "Featured Article of IEEE MTT-S Newsletter July 2022 (https://myemail.constantcontact.com/IEEE-MTT-S-Monthly-Newsletter---July-2022-Issue.html?soid=1138323635164&aid=6rqcALwKxS0)",
+    "volume": "71",
+    "issue": "1",
+    "journalLevel": "中科院1区TOP",
+    "id": "1765505097766"
+  },
+  {
+    "type": "journal",
+    "title": "Solving Phase Ambiguity in Interferometric Displacement Measurement With Millimeter-Wave FMCW Radar Sensors",
+    "authors": [
+      "J. Liu",
+      "Y. Li and C. Gu"
+    ],
+    "authorPosition": 2,
+    "venue": "IEEE Sensors Journal",
+    "year": 2022,
+    "month": 5,
+    "pages": "8482-8489",
+    "doi": "10.1109/JSEN.2022.3158657",
+    "url": "https://ieeexplore.ieee.org/document/9732981",
+    "volume": "22",
+    "issue": "9",
+    "journalLevel": "中科院2区",
+    "id": "1765504411298"
+  },
+  {
+    "type": "journal",
+    "title": "Mitigation of Leakage and Stationary Clutters in Short-Range FMCW Radar With Hybrid Analog and Digital Compensation Technique",
+    "authors": [
+      "J. Liu",
+      "J. Lu",
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "IEEE Transactions on Microwave Theory and Techniques",
+    "year": 2022,
+    "month": 1,
+    "pages": "62-73",
+    "doi": "10.1109/TMTT.2021.3119345",
+    "url": "https://ieeexplore.ieee.org/document/9583883",
+    "volume": "70",
+    "issue": "1",
+    "journalLevel": "中科院1区TOP",
+    "id": "1765504336115"
+  },
+  {
+    "type": "journal",
+    "title": "Large Displacement Motion Interferometry With Modified Differentiate and Cross-Multiply Technique",
+    "authors": [
+      "W. Xu",
+      "Y. Li",
+      "C. Gu and J. -F. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "IEEE Transactions on Microwave Theory and Techniques",
+    "year": 2021,
+    "month": 11,
+    "pages": "4879-4890",
+    "doi": "10.1109/TMTT.2021.3103576",
+    "url": "https://ieeexplore.ieee.org/document/9514546",
+    "volume": "69",
+    "issue": "11",
+    "journalLevel": "中科院1区TOP",
+    "id": "1765504039633"
+  },
+  {
+    "type": "journal",
+    "title": "Accurate Measurement of Human Vital Signs With Linear FMCW Radars Under Proximity Stationary Clutters",
+    "authors": [
+      "J. Liu",
+      "Y. Li",
+      "C. Li",
+      "C. Gu and J. -F. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+    "year": 2021,
+    "month": 9,
+    "pages": "1393-1404",
+    "doi": "10.1109/TBCAS.2021.3123830",
+    "url": "https://ieeexplore.ieee.org/document/9594688",
+    "volume": "15",
+    "issue": "6",
+    "journalLevel": "中科院2区",
+    "id": "1765504225427"
+  },
+  {
+    "type": "conference",
+    "title": "A Portable 5.8 GHz Radar Sensor with an Integreted Common-Aperture Single Antenna for Noncontact Physiological Monitoring",
+    "authors": [
+      "F. Tong",
+      "Y. Li",
+      "C. Gu and J. -F. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "2021 IEEE MTT-S International Wireless Symposium (IWS)",
+    "year": 2021,
+    "month": 5,
+    "pages": "1-3",
+    "doi": "10.1109/IWS52775.2021.9499347",
+    "url": "https://ieeexplore.ieee.org/document/9499347",
+    "confCity": "Nanjing",
+    "confCountry": "China",
+    "id": "1765503957438"
+  },
+  {
+    "type": "conference",
+    "title": "Audio Recovery via Noncontact Vibration Detection with 120 GHz Millimeter-Wave Radar Sensing",
+    "authors": [
+      "L. Wen",
+      "Y. Li",
+      "Y. Ye",
+      "C. Gu and J. -F. Mao"
+    ],
+    "authorPosition": 2,
+    "venue": "2021 International Conference on Microwave and Millimeter Wave Technology (ICMMT)",
+    "year": 2021,
+    "month": 5,
+    "pages": "1-3",
+    "doi": "10.1109/ICMMT52847.2021.9617945",
+    "url": "https://ieeexplore.ieee.org/document/9617945",
+    "confCity": "Nanjing",
+    "confCountry": "China",
+    "id": "1765504277666"
+  },
+  {
+    "type": "journal",
+    "title": "Frequency-Domain Leakage and Stationary Clutter Cancellation Technique With a K-Band Short-Range End-to-End Sparse MIMO FMCW Radar System",
+    "authors": [
+      "J. Zhang",
+      "Z. Zhang",
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 3,
+    "venue": "IEEE Transactions on Microwave Theory and Techniques",
+    "year": 2025,
+    "month": 10,
+    "pages": "8310-8324",
+    "doi": "10.1109/TMTT.2025.3565631",
+    "url": "https://ieeexplore.ieee.org/document/11005633",
+    "volume": "73",
+    "issue": "10",
+    "journalLevel": "中科院1区TOP",
+    "id": "1765507062168"
+  },
+  {
+    "type": "conference",
+    "title": "Accurate Doppler Cardiogram Sensing with Frequency-Domain Digital Beamforming Technique Based on a  K -Band Biomedical Radar",
+    "authors": [
+      "J. Zhang",
+      "S. Dong",
+      "Y. Li",
+      "Y. Cao",
+      "Z. Zhang",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 3,
+    "venue": "2025 IEEE/MTT-S International Microwave Symposium - IMS 2025",
+    "year": 2025,
+    "month": 6,
+    "pages": "279-282",
+    "doi": "10.1109/IMS40360.2025.11103974",
+    "url": "https://ieeexplore.ieee.org/document/11103974",
+    "confCity": "San Francisco, CA",
+    "confCountry": "USA",
+    "id": "1765507131132"
+  },
+  {
+    "type": "journal",
+    "title": "Reconfigurable Frequency–Spatial Equivalent Array Based on FMCW Radar for Accurate Close-Spaced Multitargets Motion Sensing",
+    "authors": [
+      "J. Zhang",
+      "Z. Zhang",
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 3,
+    "venue": "IEEE Sensors Journal",
+    "year": 2025,
+    "month": 5,
+    "pages": "17975-17986",
+    "doi": "10.1109/JSEN.2025.3559347",
+    "url": "https://ieeexplore.ieee.org/document/10965885",
+    "volume": "25",
+    "issue": "10",
+    "journalLevel": "中科院2区",
+    "id": "1765506975472"
+  },
+  {
+    "type": "conference",
+    "title": "A Novel Range Estimation Method based on MUSIC High-Resolution Profile",
+    "authors": [
+      "X. Wang",
+      "Y. Cao",
+      "Y. Li and C. Gu"
+    ],
+    "authorPosition": 3,
+    "venue": "2024 International Applied Computational Electromagnetics Society Symposium (ACES-China)",
+    "year": 2024,
+    "month": 9,
+    "pages": "1-3",
+    "doi": "10.1109/ACES-China62474.2024.10699781",
+    "url": "https://ieeexplore.ieee.org/document/10699781",
+    "confCity": "Xi'an",
+    "confCountry": "China",
+    "id": "1765506636296"
+  },
+  {
+    "type": "conference",
+    "title": "Target Localization and Vital Signs Monitoring Based on Spatial-Temporal-Frequency Characteristics With Short-Range FMCW Radar",
+    "authors": [
+      "J. Zhang",
+      "Z. Zhang",
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 3,
+    "venue": "2024 International Applied Computational Electromagnetics Society Symposium (ACES-China)",
+    "year": 2024,
+    "month": 9,
+    "pages": "1-3",
+    "doi": "10.1109/ACES-China62474.2024.10699972",
+    "url": "https://ieeexplore.ieee.org/document/10699972",
+    "confCity": "Xi'an",
+    "confCountry": "China",
+    "id": "1765506684053"
+  },
+  {
+    "type": "conference",
+    "title": "A Novel Data-Based DC Offset Calibration Technique for Millimeter-wave Interferometric Sensing of Weak Displacement Motions",
+    "authors": [
+      "K. Zheng",
+      "J. Zhang",
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 3,
+    "venue": "2024 IEEE MTT-S International Wireless Symposium (IWS)",
+    "year": 2024,
+    "month": 7,
+    "pages": "1-4",
+    "doi": "10.1109/IWS61525.2024.10713800",
+    "url": "https://ieeexplore.ieee.org/document/10713800",
+    "confCity": "Beijing",
+    "confCountry": "China",
+    "id": "1765506746730"
+  },
+  {
+    "type": "conference",
+    "title": "Enhanced Micrometer-Scale Motion Sensing Using a Reconfigurable Virtual CW Algorithm Based on 60 GHz FMCW Radar",
+    "authors": [
+      "Z. Zhang",
+      "J. Zhang",
+      "Y. Li and C. Gu"
+    ],
+    "authorPosition": 3,
+    "venue": "2024 IEEE MTT-S International Wireless Symposium (IWS)",
+    "year": 2024,
+    "month": 7,
+    "pages": "1-3",
+    "doi": "10.1109/IWS61525.2024.10713709",
+    "url": "https://ieeexplore.ieee.org/document/10713709",
+    "confCity": "Beijing",
+    "confCountry": "China",
+    "id": "1765506788064"
+  },
+  {
+    "type": "journal",
+    "title": "Remote Respiratory Variables Tracking With Biomedical Radar-Based IoT System During Sleep",
+    "authors": [
+      "S. Dong",
+      "L. Wen",
+      "Y. Li",
+      "J. Lu",
+      "Z. Zhang",
+      "C. Yuan and C. Gu"
+    ],
+    "authorPosition": 3,
+    "venue": "IEEE Internet of Things Journal",
+    "year": 2024,
+    "month": 6,
+    "pages": "19937-19948",
+    "doi": "10.1109/JIOT.2024.3367932",
+    "url": "https://ieeexplore.ieee.org/document/10440444",
+    "volume": "11",
+    "issue": "11",
+    "journalLevel": "中科院2区",
+    "id": "1765506106816"
+  },
+  {
+    "type": "conference",
+    "title": "Real-Time Human Motion Tracking Technique Based On a 77 GHz FMCW MIMO Radar System",
+    "authors": [
+      "J. Zhang",
+      "Z. Zhang",
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 3,
+    "venue": "2024 International Conference on Microwave and Millimeter Wave Technology (ICMMT)",
+    "year": 2024,
+    "month": 6,
+    "pages": "1-3",
+    "doi": "10.1109/ICMMT61774.2024.10672135",
+    "url": "https://ieeexplore.ieee.org/document/10672135",
+    "confCity": "Bejing",
+    "confCountry": "China",
+    "id": "1765506523455"
+  },
+  {
+    "type": "journal",
+    "title": "Target Detection With Short-Range FMCW Radar Based on Time–Frequency Characteristic-Based Leakage Cancellation Technique",
+    "authors": [
+      "J. Zhang",
+      "Z. Zhang",
+      "Y. Li",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 3,
+    "venue": "IEEE Transactions on Microwave Theory and Techniques",
+    "year": 2024,
+    "month": 4,
+    "pages": "2318-2331",
+    "doi": "10.1109/TMTT.2024.3360324",
+    "url": "https://ieeexplore.ieee.org/document/10443219",
+    "volume": "72",
+    "issue": "4",
+    "journalLevel": "中科院1区TOP",
+    "id": "1765506251430"
+  },
+  {
+    "type": "conference",
+    "title": "Accurate Fast Heartrate Detection Based on Fourier Bessel Series Expansion During Radar-based Sleep Monitoring",
+    "authors": [
+      "S. Dong",
+      "J. Lu",
+      "Y. Li",
+      "C. Ji",
+      "C. Yuan",
+      "D. Zhao",
+      "M. Wang",
+      "J. Chen",
+      "C. Gu",
+      "and J. Mao"
+    ],
+    "authorPosition": 3,
+    "venue": "2023 IEEE/MTT-S International Microwave Symposium - IMS 2023",
+    "year": 2023,
+    "month": 6,
+    "pages": "1196-1199",
+    "doi": "10.1109/IMS37964.2023.10188051",
+    "url": "https://ieeexplore.ieee.org/document/10188051/authors#authors",
+    "confCity": "San Diego, CA",
+    "confCountry": "USA",
+    "id": "1765505503479"
+  },
+  {
+    "type": "conference",
+    "title": "COVID-SENSE: Radar-Based Remote Respiratory Disorder Detection in Clinical Environment",
+    "authors": [
+      "S. Dong",
+      "Z. Zhang",
+      "Y. Li",
+      "J. Lu",
+      "H. Wu",
+      "C. Gu and J. Mao"
+    ],
+    "authorPosition": 3,
+    "venue": "2023 IEEE MTT-S International Wireless Symposium (IWS)",
+    "year": 2023,
+    "month": 6,
+    "pages": "1-3",
+    "doi": "10.1109/IWS58240.2023.10222219",
+    "url": "https://ieeexplore.ieee.org/document/10222219",
+    "confCity": "Qingdao",
+    "confCountry": "China",
+    "id": "1765505938578"
+  },
+  {
+    "type": "conference",
+    "title": "An Adaptive Kalman Filter based Digital Phase Detector for All Digital Phase-Locked Loop",
+    "authors": [
+      "K. Wu",
+      "C. Shi",
+      "Y. Li",
+      "C. Gu and Jinjing"
+    ],
+    "authorPosition": 3,
+    "venue": "2021 IEEE MTT-S International Wireless Symposium (IWS)",
+    "year": 2021,
+    "month": 5,
+    "pages": "1-3",
+    "doi": "10.1109/IWS52775.2021.9499674",
+    "url": "https://ieeexplore.ieee.org/document/9499674",
+    "confCity": "Nanjing",
+    "confCountry": "China",
+    "id": "1765503800061"
+  },
+  {
+    "type": "journal",
+    "title": "Enhanced Motion Sensing With FMCW Radar Based on a Novel Frequency-Reconfigurable Technique",
+    "authors": [
+      "Z. Zhang",
+      "J. Zhang",
+      "J. Liu",
+      "Y. Li and C. Gu"
+    ],
+    "authorPosition": 4,
+    "venue": "IEEE Transactions on Microwave Theory and Techniques",
+    "year": 2024,
+    "month": 10,
+    "pages": "6187-6199",
+    "doi": "10.1109/TMTT.2024.3383667",
+    "url": "https://ieeexplore.ieee.org/document/10494589",
+    "volume": "72",
+    "issue": "10",
+    "journalLevel": "中科院1区TOP",
+    "id": "1765506319525"
+  },
+  {
+    "type": "conference",
+    "title": "A High-efficiency and High-accuracy Distance Measurement Technique Based on Phase Differentiation and Accumulation with FMCW radars",
+    "authors": [
+      "J. Liu",
+      "Z. Zhang",
+      "J. Lu",
+      "Y. Li",
+      "C. Gu and J. -F. Mao"
+    ],
+    "authorPosition": 4,
+    "venue": "2023 IEEE/MTT-S International Microwave Symposium - IMS 2023",
+    "year": 2023,
+    "month": 6,
+    "pages": "521-524",
+    "doi": "10.1109/IMS37964.2023.10188183",
+    "url": "https://ieeexplore.ieee.org/document/10188183",
+    "confCity": "San Diego, CA",
+    "confCountry": "USA",
+    "id": "1765505610830"
+  }
+]
