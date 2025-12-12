@@ -657,8 +657,7 @@
     <button id="backToTop" onclick="scrollToTop()" title="返回顶部">&gt;</button>
 
     <script>
-        let siteData = {};
-
+        let siteData = null;  // 改为 null 以便准确判断是否加载
         let publications = [];
 
         // 加载数据（优先JSON，失败则使用localStorage）
@@ -668,6 +667,7 @@
                 const response = await fetch('data/siteData.json');
                 if (response.ok) {
                     const data = await response.json();
+                    console.log('📦 JSON文件读取成功', data);
                     
                     // 检查是否包含 publications（新格式）
                     if (data.publications) {
@@ -690,11 +690,17 @@
                     
                     // 提取主数据（排除 publications 和 settings）
                     const { publications: pubs, settings, ...mainData } = data;
-                    siteData = mainData;
-                    console.log('✅ 主页数据已从JSON文件加载');
+                    
+                    // 验证 mainData 是否包含必要的字段
+                    if (mainData && mainData.basicInfo) {
+                        siteData = mainData;
+                        console.log('✅ 主页数据已从JSON文件加载', siteData);
+                    } else {
+                        console.log('⚠️ JSON文件格式不正确，缺少必要字段');
+                    }
                 }
             } catch (error) {
-                console.log('⚠️ siteData.json加载失败，尝试旧格式或localStorage');
+                console.log('⚠️ siteData.json加载失败：', error);
             }
             
             // 如果新格式没有 publications，尝试旧格式（向后兼容）
@@ -711,7 +717,7 @@
             }
             
             // 如果JSON加载失败，使用localStorage（用于本地）
-            if (!siteData || Object.keys(siteData).length === 0) {
+            if (!siteData) {
                 const data = localStorage.getItem('academicSiteData');
                 if (data) {
                     siteData = JSON.parse(data);
@@ -766,6 +772,14 @@
                 }
             }
             
+            // 最终检查：如果 siteData 仍然为 null，说明加载完全失败
+            if (!siteData) {
+                console.error('❌ 所有数据加载方式都失败了！');
+                alert('数据加载失败，请检查 data/siteData.json 文件是否存在且格式正确。');
+                return;  // 不渲染页面
+            }
+            
+            console.log('🎉 准备渲染页面，siteData:', siteData);
             renderPage();
         }
 
@@ -773,6 +787,12 @@
         function renderPage() {
             const contentArea = document.getElementById('contentArea');
             let html = '';
+            
+            // 确保必要的数组字段存在
+            if (!siteData.biography) siteData.biography = [];
+            if (!siteData.news) siteData.news = [];
+            if (!siteData.awards) siteData.awards = [];
+            if (!siteData.research) siteData.research = '';
 
             // Biography Section
             html += `
