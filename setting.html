@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Settings - Academic Homepage</title>
+    <link rel="icon" type="image/x-icon" href="images/logo/logo-li.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #AA060A;
+            --primary-color-rgb: 170, 6, 10;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #000000 100%);
+            min-height: 100vh;
+            padding: 60px 60px 80px 60px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: visible;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #000000 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .header-logo {
+            height: 60px;
+            width: auto;
+            opacity: 0.95;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        nav {
+            position: sticky;
+            top: -1px;
+            background: rgba(248, 249, 250, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-bottom: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav button, .btn {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            background: transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        nav button:hover, nav button.active, .btn:hover {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 35px 30px 45px;
+        }
+
+        .section-title {
+            font-size: 2.1em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            font-weight: 700;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .toolbar .spacer {
+            flex: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            border: 1px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            border-color: #999;
+            color: #555;
+        }
+
+        .btn-danger {
+            border-color: #d32f2f;
+            color: #d32f2f;
+        }
+
+        .btn-danger:hover {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 0.9em;
+        }
+
+        .status {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .panel {
+            display: none;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 9px 11px;
+            border: 1px solid #d6d6d6;
+            border-radius: 6px;
+            font: inherit;
+            color: #333;
+            background: white;
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .hint {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .item-card {
+            margin-bottom: 8px;
+            padding: 8px 10px;
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .item-card[draggable="true"] {
+            cursor: grab;
+        }
+
+        .item-card.dragging {
+            opacity: 0.45;
+            cursor: grabbing;
+        }
+
+        .pending-card {
+            border-left-style: dashed;
+        }
+
+        .drag-handle {
+            color: #888;
+            font-weight: 700;
+            margin-right: 8px;
+            user-select: none;
+        }
+
+        .item-card:hover {
+            background: #e9ecef;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .item-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .item-title {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .item-title small {
+            color: #777;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .subsection-title {
+            color: var(--primary-color);
+            margin: 18px 0 10px;
+            font-size: 1.35em;
+            font-weight: 600;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 10px 18px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px 18px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .preview-label {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .preview-value {
+            overflow-wrap: anywhere;
+        }
+
+        .edit-box {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .edit-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .timeline-item, .news-item, .award-item-new {
+            margin-bottom: 0;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 128px 1fr;
+            gap: 12px;
+            align-items: center;
+            transition: all 0.3s;
+            min-height: 44px;
+        }
+
+        .award-item-new {
+            grid-template-columns: 82px 1fr;
+            gap: 10px;
+            padding: 7px 10px;
+            min-height: auto;
+        }
+
+        .item-date {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #000000 100%);
+            color: white;
+            padding: 5px 8px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95em;
+            box-shadow: 0 3px 8px rgba(var(--primary-color-rgb), 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 32px;
+        }
+
+        .award-item-new .item-date {
+            padding: 6px 10px;
+            font-size: 0.9em;
+            min-height: 36px;
+        }
+
+        .item-content {
+            color: #333;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        .publication-preview {
+            padding: 8px 10px;
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 6px;
+        }
+
+        .publication-number {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            width: 26px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .publication-citation {
+            font-size: 0.92em;
+            line-height: 1.45;
+            display: inline;
+            overflow-wrap: anywhere;
+        }
+
+        .publication-meta {
+            margin-top: 4px;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            font-weight: 500;
+            background: #dfe6e9;
+            color: #2d3436;
+        }
+
+        .author-highlight {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .publication-remark {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: 5px;
+            font-size: 0.85em;
+        }
+
+        .compact-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 10px;
+            align-items: start;
+        }
+
+        .compact-row .item-actions {
+            width: 112px;
+            justify-content: flex-end;
+            gap: 5px;
+        }
+
+        .compact-row .btn-small {
+            padding: 4px 7px;
+            font-size: 0.85em;
+        }
+
+        .compact-content {
+            min-width: 0;
+        }
+
+        .compact-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .publication-type-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0 20px;
+        }
+
+        .empty-state {
+            padding: 18px;
+            background: #f8f9fa;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+            color: #666;
+        }
+
+        .parser-box {
+            padding: 12px;
+            margin-bottom: 14px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .add-pub-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .json-preview {
+            min-height: 420px;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.92em;
+            white-space: pre;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            border-radius: 0 0 20px 20px;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .header-logos {
+                gap: 15px;
+            }
+
+            .header-logo {
+                height: 45px;
+            }
+
+            .content {
+                padding: 20px 15px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item, .news-item, .award-item-new {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .compact-row {
+                grid-template-columns: 1fr;
+            }
+
+            .compact-row .item-actions {
+                width: auto;
+                justify-content: flex-start;
+            }
+
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .toolbar {
+                align-items: stretch;
+            }
+
+            .toolbar .spacer {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-logos">
+                <img src="images/logo/SJTU02.svg" alt="SJTU Logo" class="header-logo" onerror="this.style.display='none'">
+                <img src="images/logo/new_logo1-raw.png" alt="Lab Logo" class="header-logo" onerror="this.style.display='none'">
+            </div>
+            <h1>Website Settings</h1>
+            <p class="subtitle">Import, edit, save draft, and export siteData.json</p>
+        </header>
+
+        <nav id="tabs">
+            <button class="active" data-tab="basic">Basic</button>
+            <button data-tab="biography">Biography</button>
+            <button data-tab="research">Research</button>
+            <button data-tab="news">News</button>
+            <button data-tab="publications">Publications</button>
+            <button data-tab="awards">Honors</button>
+            <button data-tab="settings">Display</button>
+            <button data-tab="json">JSON</button>
+        </nav>
+
+        <div class="content">
+            <div class="toolbar">
+                <input id="jsonFile" class="file-input" type="file" accept=".json,application/json">
+                <button class="btn btn-primary" type="button" id="importBtn">Import JSON</button>
+                <button class="btn" type="button" id="saveDraftBtn">Save Draft</button>
+                <button class="btn btn-primary" type="button" id="exportBtn">Export siteData.json</button>
+                <button class="btn btn-secondary" type="button" id="clearDraftBtn">Clear Draft</button>
+                <span class="spacer"></span>
+                <span class="status" id="statusText">Ready</span>
+            </div>
+
+            <section class="panel active" id="panel-basic"></section>
+            <section class="panel" id="panel-biography"></section>
+            <section class="panel" id="panel-research"></section>
+            <section class="panel" id="panel-news"></section>
+            <section class="panel" id="panel-publications"></section>
+            <section class="panel" id="panel-awards"></section>
+            <section class="panel" id="panel-settings"></section>
+            <section class="panel" id="panel-json"></section>
+        </div>
+
+        <footer>
+            <a href="index.html">Academic Homepage</a>
+            <a href="pub_index.html">Publication Index</a>
+        </footer>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'academicSiteDataSettingDraft';
+        const DEFAULT_DATA = {
+            basicInfo: {
+                name: '',
+                nameEn: '',
+                title: '',
+                institution: '',
+                email: '',
+                office: '',
+                photo: '',
+                links: { ieee: '', scholar: '', researchgate: '' }
+            },
+            biography: [],
+            research: '',
+            researchProjects: [],
+            news: [],
+            awards: [],
+            publications: [],
+            settings: {
+                publication: {
+                    showAuthorPosition: false,
+                    showJournalLevel: false,
+                    showDOI: true,
+                    showURL: true
+                },
+                site: { pageTitle: '', favicon: '', headerTitle: '' },
+                color: { primaryColor: '#AA060A' },
+                font: { baseFontSize: 14 }
+            }
+        };
+
+        let siteData = clone(DEFAULT_DATA);
+        let currentTab = 'basic';
+        let editingKey = null;
+        let currentPublicationType = 'journal';
+        let dragState = null;
+        let showIeeeParser = false;
+        let pendingNewItem = null;
+        let editingOriginalItem = null;
+
+        function clone(value) {
+            return JSON.parse(JSON.stringify(value));
+        }
+
+        function setStatus(text) {
+            document.getElementById('statusText').textContent = text;
+        }
+
+        function ensureShape() {
+            siteData.basicInfo = siteData.basicInfo || clone(DEFAULT_DATA.basicInfo);
+            siteData.basicInfo.links = siteData.basicInfo.links || {};
+            siteData.biography = Array.isArray(siteData.biography) ? siteData.biography : [];
+            siteData.news = Array.isArray(siteData.news) ? siteData.news : [];
+            siteData.awards = Array.isArray(siteData.awards) ? siteData.awards : [];
+            siteData.publications = Array.isArray(siteData.publications) ? siteData.publications : [];
+            siteData.researchProjects = Array.isArray(siteData.researchProjects) ? siteData.researchProjects : [];
+            siteData.settings = siteData.settings || clone(DEFAULT_DATA.settings);
+            siteData.settings.publication = siteData.settings.publication || clone(DEFAULT_DATA.settings.publication);
+            siteData.settings.site = siteData.settings.site || clone(DEFAULT_DATA.settings.site);
+            siteData.settings.color = siteData.settings.color || {};
+            siteData.settings.font = siteData.settings.font || {};
+        }
+
+        function escapeHtml(value) {
+            return String(value ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function getByPath(path) {
+            return path.split('.').reduce((obj, key) => obj ? obj[key] : undefined, siteData);
+        }
+
+        function setByPath(path, value) {
+            const parts = path.split('.');
+            let obj = siteData;
+            parts.slice(0, -1).forEach(key => {
+                if (!obj[key] || typeof obj[key] !== 'object') obj[key] = {};
+                obj = obj[key];
+            });
+            obj[parts[parts.length - 1]] = value;
+        }
+
+        function textField(label, path, placeholder = '') {
+            return `
+                <div class="field">
+                    <label>${label}</label>
+                    <input type="text" data-path="${path}" value="${escapeHtml(getByPath(path) || '')}" placeholder="${escapeHtml(placeholder)}">
+                </div>
+            `;
+        }
+
+        function numberField(label, path, placeholder = '') {
+            return `
+                <div class="field">
+                    <label>${label}</label>
+                    <input type="number" data-path="${path}" value="${escapeHtml(getByPath(path) || '')}" placeholder="${escapeHtml(placeholder)}">
+                </div>
+            `;
+        }
+
+        function checkboxField(label, path) {
+            return `
+                <div class="field">
+                    <label>
+                        <input type="checkbox" data-path="${path}" ${getByPath(path) ? 'checked' : ''}>
+                        ${label}
+                    </label>
+                </div>
+            `;
+        }
+
+        function textareaField(label, path, rows = 4, hint = '') {
+            return `
+                <div class="field full">
+                    <label>${label}</label>
+                    <textarea rows="${rows}" data-path="${path}">${escapeHtml(getByPath(path) || '')}</textarea>
+                    ${hint ? `<div class="hint">${hint}</div>` : ''}
+                </div>
+            `;
+        }
+
+        function render() {
+            ensureShape();
+            renderBasic();
+            renderBiography();
+            renderResearch();
+            renderNews();
+            renderPublications();
+            renderAwards();
+            renderSettings();
+            renderJson();
+        }
+
+        function renderBasic() {
+            const basic = siteData.basicInfo;
+            const isEdit = editingKey === 'basicInfo:0';
+            document.getElementById('panel-basic').innerHTML = `
+                <h2 class="section-title">Basic Information</h2>
+                ${isEdit ? `
+                    <div class="edit-box">
+                        <div class="form-grid">
+                            ${editPathInput('Chinese Name', 'basicInfo.name')}
+                            ${editPathInput('English Name', 'basicInfo.nameEn')}
+                            ${editPathInput('Title', 'basicInfo.title')}
+                            ${editPathInput('Institution', 'basicInfo.institution')}
+                            ${editPathInput('Email', 'basicInfo.email')}
+                            ${editPathInput('Office', 'basicInfo.office')}
+                            ${editPathInput('Photo Path', 'basicInfo.photo', 'images/people/lyc.png')}
+                            ${editPathInput('IEEE Homepage', 'basicInfo.links.ieee')}
+                            ${editPathInput('Google Scholar', 'basicInfo.links.scholar')}
+                            ${editPathInput('ResearchGate', 'basicInfo.links.researchgate')}
+                        </div>
+                        ${editActions('basicInfo', 0)}
+                    </div>
+                ` : `
+                    <div class="item-card">
+                        <div class="item-head">
+                            <div class="item-title">${escapeHtml(basic.nameEn || basic.name || 'Basic Information')}</div>
+                            <div class="item-actions">
+                                <button class="btn btn-small" type="button" data-action="edit" data-section="basicInfo" data-index="0">Edit</button>
+                            </div>
+                        </div>
+                        <div class="preview-grid">
+                            ${previewRow('Chinese Name', basic.name)}
+                            ${previewRow('English Name', basic.nameEn)}
+                            ${previewRow('Title', basic.title)}
+                            ${previewRow('Institution', basic.institution)}
+                            ${previewRow('Email', basic.email)}
+                            ${previewRow('Office', basic.office)}
+                            ${previewRow('Photo', basic.photo)}
+                            ${previewRow('IEEE', basic.links?.ieee)}
+                            ${previewRow('Google Scholar', basic.links?.scholar)}
+                            ${previewRow('ResearchGate', basic.links?.researchgate)}
+                        </div>
+                    </div>
+                `}
+            `;
+        }
+
+        function renderBiography() {
+            const pending = renderPendingNewEditor('biography');
+            const items = siteData.biography.map((item, index) => renderTimelineCard('biography', index, item.date, item.content, 'Biography')).join('');
+            const listHtml = `${pending}${items}`;
+            document.getElementById('panel-biography').innerHTML = `
+                <h2 class="section-title">Biography</h2>
+                <button class="btn btn-primary" type="button" data-action="add" data-section="biography">Add Biography</button>
+                <div class="sortable-list" data-section="biography" style="margin-top: 18px;">${listHtml || emptyState('No biography items yet.')}</div>
+            `;
+        }
+
+        function renderResearch() {
+            const summaryEdit = editingKey === 'research:summary';
+            const pending = renderPendingNewEditor('researchProjects');
+            const projects = siteData.researchProjects.map((item, index) => renderResearchProjectCard(item, index)).join('');
+            const listHtml = `${pending}${projects}`;
+            document.getElementById('panel-research').innerHTML = `
+                <h2 class="section-title">Research</h2>
+                <div class="item-card">
+                    <div class="item-head">
+                        <div class="item-title">Research Interests Summary</div>
+                        <div class="item-actions">
+                            <button class="btn btn-small" type="button" data-action="edit" data-section="research" data-index="summary">Edit</button>
+                        </div>
+                    </div>
+                    ${summaryEdit ? `
+                        <div class="edit-box">
+                            <div class="form-grid">${editSpecialTextarea('research', 'Research Summary HTML', siteData.research || '', 5)}</div>
+                            ${editActions('research', 'summary')}
+                        </div>
+                    ` : `<p class="item-content">${siteData.research || '<span class="hint">No research summary.</span>'}</p>`}
+                </div>
+                <h3 class="subsection-title">Research Project Modules</h3>
+                <button class="btn btn-primary" type="button" data-action="add" data-section="researchProjects">Add Research Project</button>
+                <div class="sortable-list" data-section="researchProjects" style="margin-top: 18px;">${listHtml || emptyState('No research project modules yet.')}</div>
+            `;
+        }
+
+        function renderNews() {
+            const pending = renderPendingNewEditor('news');
+            const items = siteData.news.map((item, index) => renderNewsCard(item, index)).join('');
+            const listHtml = `${pending}${items}`;
+            document.getElementById('panel-news').innerHTML = `
+                <h2 class="section-title">News</h2>
+                <button class="btn btn-primary" type="button" data-action="add" data-section="news">Add News</button>
+                <div class="sortable-list" data-section="news" style="margin-top: 18px;">${listHtml || emptyState('No news yet.')}</div>
+            `;
+        }
+
+        function renderAwards() {
+            const pending = renderPendingNewEditor('awards');
+            const items = siteData.awards.map((item, index) => renderTimelineCard('awards', index, item.year, item.content, 'Award')).join('');
+            const listHtml = `${pending}${items}`;
+            document.getElementById('panel-awards').innerHTML = `
+                <h2 class="section-title">Awards & Honors</h2>
+                <button class="btn btn-primary" type="button" data-action="add" data-section="awards">Add Award</button>
+                <div class="sortable-list" data-section="awards" style="margin-top: 18px;">${listHtml || emptyState('No awards yet.')}</div>
+            `;
+        }
+
+        function renderPublications() {
+            const typeOrder = ['journal', 'conference', 'patent', 'book'];
+            const labels = { journal: 'Journal', conference: 'Conference', patent: 'Patent', book: 'Book Chapter' };
+            const tabs = typeOrder.map(type => {
+                const count = siteData.publications.filter(pub => normalizePubType(pub.type) === type).length;
+                return `<button class="btn btn-small ${currentPublicationType === type ? 'btn-primary' : ''}" type="button" data-action="pub-type" data-type="${type}">${labels[type]} (${count})</button>`;
+            }).join('');
+            const filtered = siteData.publications
+                .map((pub, index) => ({ pub, index }))
+                .filter(item => normalizePubType(item.pub.type) === currentPublicationType);
+            const items = filtered.map((item, orderIndex) => renderPublicationCard(item.pub, item.index, orderIndex + 1)).join('');
+            const pending = hasPendingNew('publications') && normalizePubType(pendingNewItem.item.type) === currentPublicationType
+                ? renderPendingNewEditor('publications')
+                : '';
+            const listHtml = `${pending}${items}`;
+            document.getElementById('panel-publications').innerHTML = `
+                <h2 class="section-title">Publications</h2>
+                <button class="btn btn-primary" type="button" data-action="add" data-section="publications" data-type="${currentPublicationType}">Add Pub</button>
+                <div class="publication-type-tabs">${tabs}</div>
+                <div class="sortable-list" data-section="publications" style="margin-top: 18px;">${listHtml || emptyState(`No ${labels[currentPublicationType].toLowerCase()} items yet.`)}</div>
+            `;
+            const parseBtn = document.getElementById('parseCitationBtn');
+            if (parseBtn) parseBtn.addEventListener('click', parseCitationIntoPublication);
+        }
+
+        function renderSettings() {
+            const isEdit = editingKey === 'settings:0';
+            const pub = siteData.settings.publication;
+            const site = siteData.settings.site;
+            const color = siteData.settings.color;
+            const font = siteData.settings.font;
+            document.getElementById('panel-settings').innerHTML = `
+                <h2 class="section-title">Display Settings</h2>
+                ${isEdit ? `
+                    <div class="edit-box">
+                        <div class="form-grid">
+                            ${editPathCheckbox('Show author position badge', 'settings.publication.showAuthorPosition')}
+                            ${editPathCheckbox('Show journal level badge', 'settings.publication.showJournalLevel')}
+                            ${editPathCheckbox('Show DOI', 'settings.publication.showDOI')}
+                            ${editPathCheckbox('Show URL link', 'settings.publication.showURL')}
+                            ${editPathInput('Page Title', 'settings.site.pageTitle')}
+                            ${editPathInput('Favicon Path', 'settings.site.favicon')}
+                            ${editPathInput('Header Title', 'settings.site.headerTitle')}
+                            ${editPathInput('Primary Color', 'settings.color.primaryColor', '#AA060A')}
+                            ${editPathInput('Base Font Size', 'settings.font.baseFontSize', '14', 'number')}
+                        </div>
+                        ${editActions('settings', 0)}
+                    </div>
+                ` : `
+                    <div class="item-card">
+                        <div class="item-head">
+                            <div class="item-title">Display Settings</div>
+                            <div class="item-actions">
+                                <button class="btn btn-small" type="button" data-action="edit" data-section="settings" data-index="0">Edit</button>
+                            </div>
+                        </div>
+                        <div class="preview-grid">
+                            ${previewRow('Show author position', pub.showAuthorPosition)}
+                            ${previewRow('Show journal level', pub.showJournalLevel)}
+                            ${previewRow('Show DOI', pub.showDOI)}
+                            ${previewRow('Show URL', pub.showURL)}
+                            ${previewRow('Page Title', site.pageTitle)}
+                            ${previewRow('Favicon', site.favicon)}
+                            ${previewRow('Header Title', site.headerTitle)}
+                            ${previewRow('Primary Color', color.primaryColor || '#AA060A')}
+                            ${previewRow('Base Font Size', font.baseFontSize)}
+                        </div>
+                    </div>
+                `}
+            `;
+        }
+
+        function renderJson() {
+            document.getElementById('panel-json').innerHTML = `
+                <h2 class="section-title">JSON Preview</h2>
+                <textarea class="json-preview" id="jsonPreview" readonly>${escapeHtml(JSON.stringify(siteData, null, 2))}</textarea>
+            `;
+        }
+
+        function hasPendingNew(section) {
+            return pendingNewItem && pendingNewItem.section === section && editingKey === `${section}:new`;
+        }
+
+        function renderPendingNewEditor(section) {
+            if (!hasPendingNew(section)) return '';
+            const item = pendingNewItem.item;
+
+            if (section === 'publications') {
+                return `<div class="item-card pending-card">${publicationEditor(item, 'new')}</div>`;
+            }
+
+            if (section === 'biography' || section === 'awards') {
+                const isAward = section === 'awards';
+                const title = isAward ? 'New Award' : 'New Biography';
+                const dateKey = isAward ? 'year' : 'date';
+                return `
+                    <div class="item-card pending-card">
+                        <div class="edit-box">
+                            <div class="item-head"><div class="item-title">${title}</div></div>
+                            <div class="form-grid">
+                                ${editArrayInput(section, 'new', dateKey, isAward ? 'Year' : 'Date')}
+                                ${editArrayTextarea(section, 'new', 'content', 'Content HTML', 4)}
+                            </div>
+                            ${editActions(section, 'new')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (section === 'news') {
+                return `
+                    <div class="item-card pending-card">
+                        <div class="edit-box">
+                            <div class="item-head"><div class="item-title">New News</div></div>
+                            <div class="form-grid">
+                                ${editArrayInput('news', 'new', 'date', 'Date', '2026-06')}
+                                ${editArrayInput('news', 'new', 'image', 'Image Path')}
+                                ${editArrayInput('news', 'new', 'link', 'Link')}
+                                ${editArrayTextarea('news', 'new', 'content', 'Content HTML', 4)}
+                            </div>
+                            ${editActions('news', 'new')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (section === 'researchProjects') {
+                return `
+                    <div class="item-card pending-card">
+                        <div class="edit-box">
+                            <div class="item-head"><div class="item-title">New Research Project</div></div>
+                            <div class="form-grid">
+                                ${editArrayInput('researchProjects', 'new', 'title', 'Title')}
+                                ${editArrayInput('researchProjects', 'new', 'image', 'Image/GIF Path', 'images/research/demo.gif')}
+                                ${editArrayInput('researchProjects', 'new', 'link', 'Link')}
+                                ${editArrayInput('researchProjects', 'new', 'tags', 'Tags', 'radar; healthcare')}
+                                ${editArrayTextarea('researchProjects', 'new', 'description', 'Description HTML', 4)}
+                            </div>
+                            ${editActions('researchProjects', 'new')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            return '';
+        }
+
+        function renderTimelineCard(section, index, dateValue, contentValue, title) {
+            const isAward = section === 'awards';
+            const isEdit = editingKey === `${section}:${index}`;
+            const dateKey = isAward ? 'year' : 'date';
+            return sortableCard(section, index, `
+                ${isEdit ? `
+                    <div class="edit-box">
+                        <div class="item-head">
+                            <div class="item-title">${title} ${index + 1}</div>
+                        </div>
+                        <div class="form-grid">
+                            ${editArrayInput(section, index, dateKey, isAward ? 'Year' : 'Date')}
+                            ${editArrayTextarea(section, index, 'content', 'Content HTML', 4)}
+                        </div>
+                        ${editActions(section, index)}
+                    </div>
+                ` : `
+                    <div class="compact-row">
+                        <div class="compact-content">
+                            <div class="${isAward ? 'award-item-new' : 'timeline-item'}">
+                                <div class="item-date"><span class="drag-handle">↕</span>${escapeHtml(dateValue || '')}</div>
+                                <div class="item-content">${contentValue || ''}</div>
+                            </div>
+                        </div>
+                        ${cardActions(section, index)}
+                    </div>
+                `}
+            `);
+        }
+
+        function arrayInput(section, index, key, label, placeholder = '') {
+            const value = siteData[section][index]?.[key] ?? '';
+            return `
+                <div class="field">
+                    <label>${label}</label>
+                    <input type="text" data-section="${section}" data-index="${index}" data-key="${key}" value="${escapeHtml(formatEditorValue(value))}" placeholder="${escapeHtml(placeholder)}">
+                </div>
+            `;
+        }
+
+        function arrayNumber(section, index, key, label, placeholder = '') {
+            const value = siteData[section][index]?.[key] ?? '';
+            return `
+                <div class="field">
+                    <label>${label}</label>
+                    <input type="number" data-section="${section}" data-index="${index}" data-key="${key}" value="${escapeHtml(value)}" placeholder="${escapeHtml(placeholder)}">
+                </div>
+            `;
+        }
+
+        function arrayTextarea(section, index, key, label, rows = 3) {
+            const value = siteData[section][index]?.[key] ?? '';
+            return `
+                <div class="field full">
+                    <label>${label}</label>
+                    <textarea rows="${rows}" data-section="${section}" data-index="${index}" data-key="${key}">${escapeHtml(formatEditorValue(value))}</textarea>
+                </div>
+            `;
+        }
+
+        function publicationEditor(pub, index) {
+            const type = normalizePubType(pub.type);
+            const typeLabels = { journal: 'Journal', conference: 'Conference', patent: 'Patent', book: 'Book Chapter' };
+            const venueLabels = {
+                journal: 'Journal Name',
+                conference: 'Conference Name',
+                patent: 'Patent Office / Assignee',
+                book: 'Book / Chapter Venue'
+            };
+            let specificFields = '';
+            if (type === 'journal') {
+                specificFields = `
+                    ${editArrayInput('publications', index, 'volume', 'Volume')}
+                    ${editArrayInput('publications', index, 'issue', 'Issue')}
+                    ${editArrayInput('publications', index, 'pages', 'Pages')}
+                    ${editArrayInput('publications', index, 'journalLevel', 'Journal Level')}
+                    ${editArrayInput('publications', index, 'doi', 'DOI')}
+                    ${editArrayInput('publications', index, 'url', 'URL')}
+                `;
+            } else if (type === 'conference') {
+                specificFields = `
+                    ${editArrayInput('publications', index, 'confCity', 'Conference City')}
+                    ${editArrayInput('publications', index, 'confCountry', 'Conference Country')}
+                    ${editArrayInput('publications', index, 'pages', 'Pages')}
+                    ${editArrayInput('publications', index, 'doi', 'DOI')}
+                    ${editArrayInput('publications', index, 'url', 'URL')}
+                `;
+            } else if (type === 'patent') {
+                specificFields = `
+                    ${editArrayInput('publications', index, 'patentNumber', 'Patent Number')}
+                    ${editArrayInput('publications', index, 'patentStatus', 'Patent Status')}
+                    ${editArrayInput('publications', index, 'url', 'URL')}
+                `;
+            } else {
+                specificFields = `
+                    ${editArrayInput('publications', index, 'chapter', 'Book Chapter')}
+                    ${editArrayInput('publications', index, 'pages', 'Pages')}
+                    ${editArrayInput('publications', index, 'doi', 'DOI')}
+                    ${editArrayInput('publications', index, 'url', 'URL')}
+                `;
+            }
+            return `
+                <div class="edit-box">
+                    ${String(index) === 'new' ? renderIeeeParser() : ''}
+                    <div class="form-grid">
+                        <div class="field">
+                            <label>Type</label>
+                            <select data-edit-section="publications" data-edit-index="${index}" data-edit-key="type">
+                                ${['journal', 'conference', 'patent', 'book'].map(option => `<option value="${option}" ${type === option ? 'selected' : ''}>${typeLabels[option]}</option>`).join('')}
+                            </select>
+                        </div>
+                        ${editArrayInput('publications', index, 'id', 'ID (internal, auto)')}
+                        ${editArrayInput('publications', index, 'title', 'Title')}
+                        ${editArrayTextarea('publications', index, 'authors', 'Authors (use | between authors)', 3)}
+                        ${editArrayInput('publications', index, 'authorPosition', 'Author Position', '1', 'number')}
+                        ${editArrayInput('publications', index, 'venue', venueLabels[type])}
+                        ${editArrayInput('publications', index, 'year', 'Year', '', 'number')}
+                        ${editArrayInput('publications', index, 'month', 'Month', '', 'number')}
+                        ${specificFields}
+                        ${editArrayInput('publications', index, 'remark', 'Remark')}
+                        ${editArrayInput('publications', index, 'remarkUrl', 'Remark URL')}
+                    </div>
+                    ${editActions('publications', index)}
+                </div>
+            `;
+        }
+
+        function renderIeeeParser() {
+            return `
+                <div class="parser-box">
+                    <div class="add-pub-options">
+                        <strong style="color: var(--primary-color);">IEEE Citation Parser (optional)</strong>
+                        <button class="btn btn-small" type="button" data-action="toggle-ieee-parser">${showIeeeParser ? 'Hide IEEE Parser' : 'Use IEEE Parser'}</button>
+                    </div>
+                    ${showIeeeParser ? `
+                        <p class="hint" style="margin: 8px 0;">Paste one IEEE citation copied from IEEE Xplore. Keywords are ignored. Parsed fields are only filled into this draft; confirm after review.</p>
+                        <textarea id="ieeeCitationInput" rows="5" placeholder="Paste IEEE citation here..."></textarea>
+                        <div style="margin-top: 8px;">
+                            <button class="btn btn-primary btn-small" type="button" id="parseCitationBtn">Parse into Fields</button>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        function previewRow(label, value) {
+            const display = value === true ? 'Yes' : value === false ? 'No' : (value || '<span class="hint">Empty</span>');
+            return `<div class="preview-label">${label}</div><div class="preview-value">${display}</div>`;
+        }
+
+        function editPathInput(label, path, placeholder = '', type = 'text') {
+            return `
+                <div class="field">
+                    <label>${label}</label>
+                    <input type="${type}" data-edit-path="${path}" value="${escapeHtml(getByPath(path) || '')}" placeholder="${escapeHtml(placeholder)}">
+                </div>
+            `;
+        }
+
+        function editPathCheckbox(label, path) {
+            return `
+                <div class="field">
+                    <label>
+                        <input type="checkbox" data-edit-path="${path}" ${getByPath(path) ? 'checked' : ''}>
+                        ${label}
+                    </label>
+                </div>
+            `;
+        }
+
+        function editSpecialTextarea(key, label, value, rows = 4) {
+            return `
+                <div class="field full">
+                    <label>${label}</label>
+                    <textarea rows="${rows}" data-edit-special="${key}">${escapeHtml(value || '')}</textarea>
+                </div>
+            `;
+        }
+
+        function getEditableItem(section, index) {
+            if (String(index) === 'new' && pendingNewItem && pendingNewItem.section === section) {
+                return pendingNewItem.item;
+            }
+            return siteData[section]?.[Number(index)] || {};
+        }
+
+        function editArrayInput(section, index, key, label, placeholder = '', type = 'text') {
+            const value = getEditableItem(section, index)?.[key] ?? '';
+            return `
+                <div class="field">
+                    <label>${label}</label>
+                    <input type="${type}" data-edit-section="${section}" data-edit-index="${index}" data-edit-key="${key}" value="${escapeHtml(formatEditorValue(value))}" placeholder="${escapeHtml(placeholder)}">
+                </div>
+            `;
+        }
+
+        function editArrayTextarea(section, index, key, label, rows = 3) {
+            const value = getEditableItem(section, index)?.[key] ?? '';
+            return `
+                <div class="field full">
+                    <label>${label}</label>
+                    <textarea rows="${rows}" data-edit-section="${section}" data-edit-index="${index}" data-edit-key="${key}">${escapeHtml(formatEditorValue(value))}</textarea>
+                </div>
+            `;
+        }
+
+        function editActions(section, index) {
+            return `
+                <div class="edit-actions">
+                    <button class="btn btn-secondary" type="button" data-action="cancel-edit">Cancel</button>
+                    <button class="btn btn-primary" type="button" data-action="confirm-edit" data-section="${section}" data-index="${index}">Confirm</button>
+                </div>
+            `;
+        }
+
+        function cardActions(section, index) {
+            return `
+                <div class="item-actions">
+                    <button class="btn btn-small" type="button" data-action="move-up" data-section="${section}" data-index="${index}">↑</button>
+                    <button class="btn btn-small" type="button" data-action="move-down" data-section="${section}" data-index="${index}">↓</button>
+                    <button class="btn btn-small" type="button" data-action="edit" data-section="${section}" data-index="${index}">Edit</button>
+                    <button class="btn btn-danger btn-small" type="button" data-action="delete" data-section="${section}" data-index="${index}">Delete</button>
+                </div>
+            `;
+        }
+
+        function sortableCard(section, index, innerHtml) {
+            return `
+                <div class="item-card" draggable="true" data-drag-section="${section}" data-drag-index="${index}">
+                    ${innerHtml}
+                </div>
+            `;
+        }
+
+        function emptyState(text) {
+            return `<div class="empty-state">${escapeHtml(text)}</div>`;
+        }
+
+        function renderNewsCard(item, index) {
+            const isEdit = editingKey === `news:${index}`;
+            return sortableCard('news', index, `
+                ${isEdit ? `
+                    <div class="edit-box">
+                        <div class="item-head">
+                            <div class="item-title">News ${index + 1}</div>
+                        </div>
+                        <div class="form-grid">
+                            ${editArrayInput('news', index, 'date', 'Date', '2026-06')}
+                            ${editArrayInput('news', index, 'image', 'Image Path')}
+                            ${editArrayInput('news', index, 'link', 'Link')}
+                            ${editArrayTextarea('news', index, 'content', 'Content HTML', 4)}
+                        </div>
+                        ${editActions('news', index)}
+                    </div>
+                ` : `
+                    <div class="compact-row">
+                        <div class="compact-content">
+                            <div class="news-item">
+                                <div class="item-date"><span class="drag-handle">↕</span>${escapeHtml(item.date || 'Recent')}</div>
+                                <div class="item-content">
+                                    ${item.content || ''}
+                                    ${item.image ? `<div class="hint">Image: ${escapeHtml(item.image)}</div>` : ''}
+                                    ${item.link ? `<div class="hint">Link: ${escapeHtml(item.link)}</div>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        ${cardActions('news', index)}
+                    </div>
+                `}
+            `);
+        }
+
+        function renderResearchProjectCard(item, index) {
+            const isEdit = editingKey === `researchProjects:${index}`;
+            return sortableCard('researchProjects', index, `
+                ${isEdit ? `
+                    <div class="edit-box">
+                        <div class="item-head">
+                            <div class="item-title">Research Project ${index + 1}</div>
+                        </div>
+                        <div class="form-grid">
+                            ${editArrayInput('researchProjects', index, 'title', 'Title')}
+                            ${editArrayInput('researchProjects', index, 'image', 'Image/GIF Path', 'images/research/demo.gif')}
+                            ${editArrayInput('researchProjects', index, 'link', 'Link')}
+                            ${editArrayInput('researchProjects', index, 'tags', 'Tags', 'radar; healthcare')}
+                            ${editArrayTextarea('researchProjects', index, 'description', 'Description HTML', 4)}
+                        </div>
+                        ${editActions('researchProjects', index)}
+                    </div>
+                ` : `
+                    <div class="compact-row">
+                        <div class="compact-content preview-grid">
+                            ${previewRow('Title', `<span class="drag-handle">↕</span>${escapeHtml(item.title || '')}`)}
+                            ${previewRow('Description', item.description || '')}
+                            ${previewRow('Image', escapeHtml(item.image || ''))}
+                            ${previewRow('Link', escapeHtml(item.link || ''))}
+                            ${previewRow('Tags', Array.isArray(item.tags) ? escapeHtml(item.tags.join('; ')) : escapeHtml(item.tags || ''))}
+                        </div>
+                        ${cardActions('researchProjects', index)}
+                    </div>
+                `}
+            `);
+        }
+
+        function renderPublicationCard(pub, index, displayNumber) {
+            const isEdit = editingKey === `publications:${index}`;
+            return sortableCard('publications', index, `
+                ${isEdit ? publicationEditor(pub, index) : `
+                    <div class="compact-row">
+                        <div class="compact-content">${formatPublicationPreview(pub, displayNumber)}</div>
+                        ${cardActions('publications', index)}
+                    </div>
+                `}
+            `);
+        }
+
+        function normalizePubType(type) {
+            if (type === 'patent' || type === 'pattern') return 'patent';
+            if (type === 'book' || type === 'book chapter' || type === 'bookChapter') return 'book';
+            if (type === 'conference') return 'conference';
+            return 'journal';
+        }
+
+        function formatPublicationPreview(pub, number) {
+            return `
+                <div class="publication-preview">
+                    <span class="publication-number">${number}</span>
+                    <div style="display: inline-block; width: calc(100% - 50px); vertical-align: top;">
+                        <div class="publication-citation">${generateCitation(pub)}</div>
+                        <div class="publication-meta">
+                            <span class="badge">${escapeHtml(normalizePubType(pub.type))}</span>
+                            <span class="badge">${escapeHtml(positionLabel(pub.authorPosition))}</span>
+                            ${pub.doi ? `<span class="badge">DOI: ${escapeHtml(pub.doi)}</span>` : ''}
+                            ${pub.url ? `<span class="badge">URL</span>` : ''}
+                            ${normalizePubType(pub.type) === 'journal' && pub.journalLevel ? `<span class="badge">${escapeHtml(pub.journalLevel)}</span>` : ''}
+                        </div>
+                        ${pub.remark ? `<div class="publication-remark">${escapeHtml(pub.remark)}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateCitation(pub) {
+            const authors = Array.isArray(pub.authors) ? pub.authors : splitAuthors(pub.authors || '');
+            const authorPosition = Number(pub.authorPosition || 0);
+            const formattedAuthors = authors.map((author, index) => {
+                const safe = escapeHtml(author);
+                return index === authorPosition - 1 ? `<span class="author-highlight">${safe}</span>` : safe;
+            });
+            const authorsText = joinAuthors(formattedAuthors);
+            const monthNames = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const dateStr = pub.month ? `${monthNames[Number(pub.month)] || ''} ${pub.year || ''}`.trim() : escapeHtml(pub.year || '');
+            let citation = `${authorsText}. <em>"${escapeHtml(pub.title || '')}"</em>. `;
+            if (normalizePubType(pub.type) === 'journal') {
+                citation += `<strong>${escapeHtml(pub.venue || '')}</strong>`;
+                if (pub.volume) citation += `, vol. ${escapeHtml(pub.volume)}`;
+                if (pub.issue) citation += `, no. ${escapeHtml(pub.issue)}`;
+                if (pub.pages) citation += `, pp. ${escapeHtml(pub.pages)}`;
+                citation += `, ${dateStr}.`;
+            } else if (normalizePubType(pub.type) === 'conference') {
+                citation += `in <strong>${escapeHtml(pub.venue || '')}</strong>`;
+                const location = [pub.confCity, pub.confCountry].filter(Boolean).map(escapeHtml).join(', ');
+                if (location) citation += ` (${location})`;
+                if (pub.pages) citation += `, pp. ${escapeHtml(pub.pages)}`;
+                citation += `, ${dateStr}.`;
+            } else if (normalizePubType(pub.type) === 'book') {
+                citation += `in <strong>${escapeHtml(pub.venue || '')}</strong>`;
+                if (pub.chapter) citation += `, ${escapeHtml(pub.chapter)}`;
+                if (pub.pages) citation += `, pp. ${escapeHtml(pub.pages)}`;
+                citation += `, ${dateStr}.`;
+            } else {
+                citation += `<strong>${escapeHtml(pub.venue || '')}</strong>`;
+                if (pub.patentNumber) citation += `, ${escapeHtml(pub.patentNumber)}`;
+                if (pub.patentStatus) citation += ` [${escapeHtml(pub.patentStatus)}]`;
+                citation += `, ${dateStr}.`;
+            }
+            return citation;
+        }
+
+        function joinAuthors(authors) {
+            if (!authors.length) return '';
+            if (/^et\s+al\.?$/i.test(authors[authors.length - 1])) {
+                if (authors.length === 1) return 'et al.';
+                return `${authors.slice(0, -1).join(', ')} et al.`;
+            }
+            if (authors.length === 1) return authors[0];
+            if (authors.length === 2) return `${authors[0]} and ${authors[1]}`;
+            return `${authors.slice(0, -1).join(', ')} and ${authors[authors.length - 1]}`;
+        }
+
+        function positionLabel(position) {
+            const pos = Number(position || 0);
+            if (!pos) return 'Author';
+            if (pos === 1) return '1st author';
+            if (pos === 2) return '2nd author';
+            if (pos === 3) return '3rd author';
+            return `${pos}th author`;
+        }
+
+        function formatEditorValue(value) {
+            if (Array.isArray(value)) return value.join(' | ');
+            return value ?? '';
+        }
+
+        function parseEditorValue(section, key, value, inputType) {
+            if (section === 'publications' && key === 'authors') {
+                return splitAuthors(value);
+            }
+            if (section === 'researchProjects' && key === 'tags') {
+                return value.split(';').map(item => item.trim()).filter(Boolean);
+            }
+            if (inputType === 'number' || ['year', 'month', 'authorPosition'].includes(key)) {
+                return value === '' ? '' : Number(value);
+            }
+            return value;
+        }
+
+        function splitAuthors(value) {
+            return value
+                .split(/\||\n/)
+                .map(item => item.trim())
+                .filter(Boolean);
+        }
+
+        function sanitizePublicationFields(pub) {
+            const type = normalizePubType(pub.type);
+            pub.type = type;
+            const allowed = {
+                journal: ['id', 'type', 'title', 'authors', 'authorPosition', 'venue', 'year', 'month', 'volume', 'issue', 'pages', 'doi', 'url', 'journalLevel', 'remark', 'remarkUrl'],
+                conference: ['id', 'type', 'title', 'authors', 'authorPosition', 'venue', 'year', 'month', 'confCity', 'confCountry', 'pages', 'doi', 'url', 'remark', 'remarkUrl'],
+                patent: ['id', 'type', 'title', 'authors', 'authorPosition', 'venue', 'year', 'month', 'patentNumber', 'patentStatus', 'url', 'remark', 'remarkUrl'],
+                book: ['id', 'type', 'title', 'authors', 'authorPosition', 'venue', 'year', 'month', 'chapter', 'pages', 'doi', 'url', 'remark', 'remarkUrl']
+            };
+            Object.keys(pub).forEach(key => {
+                if (!allowed[type].includes(key)) delete pub[key];
+            });
+            return pub;
+        }
+
+        function createDefaultItem(section, type = '') {
+            const factories = {
+                biography: () => ({ date: '', content: '' }),
+                news: () => ({ date: '', content: '', image: '', link: '' }),
+                awards: () => ({ year: '', content: '' }),
+                researchProjects: () => ({ title: '', description: '', image: 'images/research/', link: '', tags: [] }),
+                publications: () => ({
+                    id: String(Date.now()),
+                    type: type || currentPublicationType || 'journal',
+                    title: '',
+                    authors: ['Y. Li'],
+                    authorPosition: 1,
+                    venue: '',
+                    year: new Date().getFullYear(),
+                    month: '',
+                    pages: '',
+                    doi: '',
+                    url: ''
+                })
+            };
+            return factories[section] ? factories[section]() : null;
+        }
+
+        function getEditTarget(section, index) {
+            if (String(index) === 'new') {
+                return pendingNewItem && pendingNewItem.section === section ? pendingNewItem.item : null;
+            }
+            return siteData[section]?.[Number(index)] || null;
+        }
+
+        function applyArrayEditFields() {
+            document.querySelectorAll('[data-edit-section]').forEach(input => {
+                const editSection = input.dataset.editSection;
+                const editIndex = input.dataset.editIndex;
+                const key = input.dataset.editKey;
+                const target = getEditTarget(editSection, editIndex);
+                if (!target) return;
+                const value = input.type === 'checkbox' ? input.checked : input.value;
+                target[key] = parseEditorValue(editSection, key, value, input.type);
+            });
+        }
+
+        function addItem(section, type = '') {
+            ensureShape();
+            if (editingKey) {
+                setStatus('Please confirm or cancel the current edit first');
+                return;
+            }
+            const item = createDefaultItem(section, type);
+            if (!item) return;
+            pendingNewItem = { section, item };
+            editingOriginalItem = null;
+            editingKey = `${section}:new`;
+            if (section === 'publications') currentPublicationType = normalizePubType(item.type);
+            if (section === 'publications') showIeeeParser = false;
+            render();
+            setStatus(`New ${section} draft created. Confirm to add it.`);
+        }
+
+        function deleteItem(section, index) {
+            if (!Array.isArray(siteData[section])) return;
+            siteData[section].splice(index, 1);
+            render();
+            setStatus(`Deleted item from ${section}`);
+        }
+
+        function beginEdit(section, index) {
+            if (editingKey) {
+                setStatus('Please confirm or cancel the current edit first');
+                return;
+            }
+            editingOriginalItem = Array.isArray(siteData[section]) && siteData[section][Number(index)]
+                ? { section, index: Number(index), item: clone(siteData[section][Number(index)]) }
+                : null;
+            editingKey = `${section}:${index}`;
+            render();
+        }
+
+        function cancelEdit() {
+            if (editingKey && editingKey.endsWith(':new')) {
+                pendingNewItem = null;
+                showIeeeParser = false;
+            } else if (editingOriginalItem && siteData[editingOriginalItem.section]?.[editingOriginalItem.index]) {
+                siteData[editingOriginalItem.section][editingOriginalItem.index] = editingOriginalItem.item;
+            }
+            editingOriginalItem = null;
+            editingKey = null;
+            render();
+            setStatus('Edit canceled');
+        }
+
+        function confirmEdit(section, index) {
+            document.querySelectorAll('[data-edit-path]').forEach(input => {
+                const value = input.type === 'checkbox' ? input.checked : (input.type === 'number' && input.value !== '' ? Number(input.value) : input.value);
+                setByPath(input.dataset.editPath, value);
+            });
+
+            document.querySelectorAll('[data-edit-special]').forEach(input => {
+                if (input.dataset.editSpecial === 'research') siteData.research = input.value;
+            });
+
+            applyArrayEditFields();
+
+            if (String(index) === 'new') {
+                if (!pendingNewItem || pendingNewItem.section !== section) {
+                    setStatus('No pending item to add');
+                    return;
+                }
+                const item = pendingNewItem.item;
+                if (section === 'publications') {
+                    sanitizePublicationFields(item);
+                    currentPublicationType = normalizePubType(item.type);
+                }
+                siteData[section].unshift(item);
+                pendingNewItem = null;
+                showIeeeParser = false;
+            } else if (section === 'publications') {
+                const pub = siteData.publications[Number(index)];
+                if (pub) {
+                    sanitizePublicationFields(pub);
+                    currentPublicationType = normalizePubType(pub.type);
+                }
+            }
+            editingOriginalItem = null;
+            editingKey = null;
+            ensureShape();
+            render();
+            setStatus(`Updated ${section}`);
+        }
+
+        function moveItem(section, index, direction) {
+            if (!Array.isArray(siteData[section])) return;
+            if (section === 'publications') {
+                const visible = siteData.publications
+                    .map((pub, actualIndex) => ({ pub, actualIndex }))
+                    .filter(item => normalizePubType(item.pub.type) === currentPublicationType);
+                const position = visible.findIndex(item => item.actualIndex === index);
+                const target = visible[position + direction];
+                if (!target) return;
+                swapItems(section, index, target.actualIndex);
+            } else {
+                const targetIndex = index + direction;
+                if (targetIndex < 0 || targetIndex >= siteData[section].length) return;
+                swapItems(section, index, targetIndex);
+            }
+            editingKey = null;
+            render();
+            setStatus('Order updated');
+        }
+
+        function swapItems(section, a, b) {
+            const list = siteData[section];
+            const temp = list[a];
+            list[a] = list[b];
+            list[b] = temp;
+        }
+
+        function moveItemTo(section, fromIndex, toIndex) {
+            if (!Array.isArray(siteData[section]) || fromIndex === toIndex) return;
+            if (section === 'publications') {
+                const fromType = normalizePubType(siteData.publications[fromIndex]?.type);
+                const toType = normalizePubType(siteData.publications[toIndex]?.type);
+                if (fromType !== toType) return;
+            }
+            const list = siteData[section];
+            const item = list.splice(fromIndex, 1)[0];
+            const adjustedIndex = fromIndex < toIndex ? toIndex - 1 : toIndex;
+            list.splice(adjustedIndex, 0, item);
+            editingKey = null;
+            render();
+            setStatus('Order updated');
+        }
+
+        function cleanForExport() {
+            ensureShape();
+            const output = clone(siteData);
+            output.publications = output.publications.map(pub => {
+                const normalized = sanitizePublicationFields(clone(pub));
+                const cleaned = {};
+                Object.keys(normalized).forEach(key => {
+                    const value = normalized[key];
+                    if (value === '' || value === null || value === undefined) return;
+                    if (Array.isArray(value) && value.length === 0) return;
+                    cleaned[key] = value;
+                });
+                if (!cleaned.id) cleaned.id = String(Date.now() + Math.floor(Math.random() * 1000));
+                return cleaned;
+            });
+            return output;
+        }
+
+        function saveDraft() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(siteData));
+            syncLegacyPreviewStorage();
+            setStatus('Draft saved in this browser');
+        }
+
+        function clearDraft() {
+            if (!confirm('Clear the saved local draft? This will not change the imported JSON currently shown on this page.')) {
+                setStatus('Clear draft canceled');
+                return;
+            }
+            localStorage.removeItem(STORAGE_KEY);
+            [
+                'academicSiteDataSettingDraft',
+                'academicSiteData',
+                'publications',
+                'publicationSettings',
+                'siteSettings',
+                'colorSettings',
+                'fontSettings'
+            ].forEach(key => localStorage.removeItem(key));
+            setStatus('Draft cleared');
+        }
+
+        function exportJson() {
+            const output = cleanForExport();
+            const blob = new Blob([JSON.stringify(output, null, 2) + '\n'], { type: 'application/json;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'siteData.json';
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(url);
+            syncLegacyPreviewStorage(output);
+            setStatus('Exported siteData.json');
+        }
+
+        function importJsonFile(file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    siteData = JSON.parse(reader.result);
+                    ensureShape();
+                    editingKey = null;
+                    pendingNewItem = null;
+                    editingOriginalItem = null;
+                    showIeeeParser = false;
+                    syncLegacyPreviewStorage();
+                    render();
+                    setStatus(`Imported ${file.name}`);
+                } catch (error) {
+                    setStatus('Invalid JSON file');
+                }
+            };
+            reader.readAsText(file, 'utf-8');
+        }
+
+        function syncLegacyPreviewStorage(data = siteData) {
+            try {
+                localStorage.setItem('academicSiteDataSettingDraft', JSON.stringify(data));
+                localStorage.setItem('academicSiteData', JSON.stringify(data));
+                localStorage.setItem('publications', JSON.stringify(data.publications || []));
+                if (data.settings) {
+                    if (data.settings.publication) localStorage.setItem('publicationSettings', JSON.stringify(data.settings.publication));
+                    if (data.settings.site) localStorage.setItem('siteSettings', JSON.stringify(data.settings.site));
+                    if (data.settings.color) localStorage.setItem('colorSettings', JSON.stringify(data.settings.color));
+                    if (data.settings.font) localStorage.setItem('fontSettings', JSON.stringify(data.settings.font));
+                }
+            } catch (error) {
+                console.warn('Preview localStorage sync failed', error);
+            }
+        }
+
+        function parseCitationIntoPublication() {
+            const input = document.getElementById('ieeeCitationInput');
+            const citation = input.value.trim();
+            if (!citation) {
+                setStatus('Paste an IEEE citation first');
+                return;
+            }
+            applyArrayEditFields();
+            const pub = parseIeeeCitation(citation);
+            let target = hasPendingNew('publications') ? pendingNewItem.item : null;
+            if (!target) {
+                target = createDefaultItem('publications', pub.type);
+                pendingNewItem = { section: 'publications', item: target };
+                editingKey = 'publications:new';
+            }
+            const keepId = target.id || pub.id;
+            Object.entries(pub).forEach(([key, value]) => {
+                if (value === '' || value === null || value === undefined) return;
+                if (Array.isArray(value) && value.length === 0) return;
+                target[key] = value;
+            });
+            target.id = keepId;
+            sanitizePublicationFields(target);
+            currentPublicationType = normalizePubType(target.type);
+            showIeeeParser = true;
+            render();
+            setStatus('Citation parsed into fields. Review and confirm to add.');
+        }
+
+        function parseIeeeCitation(raw) {
+            let text = raw.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
+            text = text.replace(/keywords:\s*\{[\s\S]*$/i, '').trim();
+
+            const doiMatch = text.match(/\bdoi:\s*([^,\s;]+)/i);
+            const doi = doiMatch ? doiMatch[1].replace(/[.;]+$/, '') : '';
+            const titleMatch = text.match(/"([^"]+)"/);
+            const title = titleMatch ? titleMatch[1].trim().replace(/,\s*$/, '') : '';
+            const beforeTitle = titleMatch ? text.slice(0, titleMatch.index).replace(/,\s*$/, '') : '';
+            const afterTitle = titleMatch ? text.slice(titleMatch.index + titleMatch[0].length).replace(/^\s*,\s*/, '') : text;
+            const metadataText = afterTitle.replace(/\bdoi:\s*[^\s,;]+.*$/i, '').trim();
+
+            const authors = parseCitationAuthors(beforeTitle);
+            const venueInfo = parseVenueInfo(metadataText);
+            const volume = cleanCaptured(capture(metadataText, /\bvol\.\s*([^,.;]+)/i));
+            const issue = cleanCaptured(capture(metadataText, /\bno\.\s*([^,.;]+)/i));
+            const pages = cleanCaptured(capture(metadataText, /\bpp\.\s*([^,.;]+)/i));
+            const yearMatch = metadataText.match(/\b(19|20)\d{2}\b/g);
+            const year = yearMatch ? Number(yearMatch[yearMatch.length - 1]) : '';
+            const month = parseMonth(metadataText);
+            const type = inferPublicationType(metadataText, venueInfo.venue);
+            const authorPosition = Math.max(1, authors.findIndex(author => /(^|\s)Y\.\s*Li\b|Yuchen\s+Li/i.test(author)) + 1);
+
+            const pub = {
+                id: String(Date.now()),
+                type,
+                title,
+                authors,
+                authorPosition,
+                venue: venueInfo.venue,
+                year,
+                month,
+                volume,
+                issue,
+                pages,
+                doi,
+                url: doi ? `https://doi.org/${doi}` : ''
+            };
+            if (type === 'conference') {
+                pub.confCity = venueInfo.confCity;
+                pub.confCountry = venueInfo.confCountry;
+            }
+            return sanitizePublicationFields(pub);
+        }
+
+        function capture(text, regex) {
+            const match = text.match(regex);
+            return match ? match[1].trim() : '';
+        }
+
+        function cleanCaptured(value) {
+            return (value || '').replace(/[.;]+$/, '').trim();
+        }
+
+        function parseVenueInfo(text) {
+            const info = { venue: '', confCity: '', confCountry: '' };
+            let cleaned = text.replace(/^\s*,\s*/, '').replace(/\s+/g, ' ').trim().replace(/[.;,\s]+$/, '');
+            if (!cleaned) return info;
+
+            const startsWithIn = /^in\s+/i.test(cleaned);
+            cleaned = cleaned.replace(/^in\s+/i, '').trim();
+
+            if (/\bvol\./i.test(cleaned)) {
+                const match = cleaned.match(/^(.+?)(?=,\s*vol\.)/i);
+                info.venue = cleanCaptured(match ? match[1] : cleaned.split(',')[0]);
+                return info;
+            }
+
+            const journalLike = /journal|transactions|letters|magazine|access/i.test(cleaned);
+            if (startsWithIn && journalLike) {
+                const match = cleaned.match(/^(.+?)(?=,\s*(?:no\.|pp\.|Art\.|Article|(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t)?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+)?(?:19|20)\d{2}\b|$)/i);
+                info.venue = cleanCaptured(match ? match[1] : cleaned.split(',')[0]);
+                return info;
+            }
+
+            const beforePages = cleaned.split(/,\s*(?:pp\.|Art\.|Article)/i)[0].trim();
+            const parts = beforePages.split(',').map(part => part.trim()).filter(Boolean);
+            while (parts.length && /^(?:(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t)?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+)?(?:19|20)\d{2}$/i.test(parts[parts.length - 1])) {
+                parts.pop();
+            }
+            info.venue = cleanCaptured(parts.shift() || '');
+            if (parts.length) {
+                info.confCity = parts[0] || '';
+                info.confCountry = parts.slice(1).join(', ');
+            }
+            return info;
+        }
+
+        function parseCitationAuthors(text) {
+            const authors = text
+                .replace(/\s+and\s+/gi, ', ')
+                .split(',')
+                .map(item => item.trim())
+                .filter(Boolean);
+            return authors.flatMap(author => {
+                const match = author.match(/^(.*?)(?:\s+)?\bet\s+al\.?$/i);
+                if (!match) return [author];
+                const name = match[1].trim().replace(/,\s*$/, '');
+                return name ? [name, 'et al.'] : ['et al.'];
+            });
+        }
+
+        function parseMonth(text) {
+            const months = {
+                jan: 1, january: 1, feb: 2, february: 2, mar: 3, march: 3,
+                apr: 4, april: 4, may: 5, jun: 6, june: 6, jul: 7, july: 7,
+                aug: 8, august: 8, sep: 9, sept: 9, september: 9,
+                oct: 10, october: 10, nov: 11, november: 11, dec: 12, december: 12
+            };
+            const match = text.match(/\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t)?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\b/i);
+            return match ? months[match[1].toLowerCase().replace('.', '')] : '';
+        }
+
+        function inferPublicationType(text, venue) {
+            if (/patent/i.test(`${text} ${venue}`)) return 'patent';
+            if (/\bvol\./i.test(text)) return 'journal';
+            if (/journal|transactions|letters|magazine|access/i.test(venue)) return 'journal';
+            return 'conference';
+        }
+
+        document.getElementById('tabs').addEventListener('click', event => {
+            const button = event.target.closest('button[data-tab]');
+            if (!button) return;
+            currentTab = button.dataset.tab;
+            document.querySelectorAll('#tabs button').forEach(item => item.classList.toggle('active', item === button));
+            document.querySelectorAll('.panel').forEach(panel => panel.classList.toggle('active', panel.id === `panel-${currentTab}`));
+            if (currentTab === 'json') renderJson();
+        });
+
+        document.querySelector('.content').addEventListener('input', event => {
+            const target = event.target;
+            if (target.dataset.path) {
+                setByPath(target.dataset.path, target.type === 'checkbox' ? target.checked : target.value);
+                if (currentTab === 'json') renderJson();
+            }
+            if (target.dataset.section) {
+                const section = target.dataset.section;
+                const index = Number(target.dataset.index);
+                const key = target.dataset.key;
+                if (siteData[section] && siteData[section][index]) {
+                    siteData[section][index][key] = parseEditorValue(section, key, target.type === 'checkbox' ? target.checked : target.value, target.type);
+                }
+            }
+        });
+
+        document.querySelector('.content').addEventListener('change', event => {
+            const target = event.target;
+            if (target.dataset.path) {
+                setByPath(target.dataset.path, target.type === 'checkbox' ? target.checked : target.value);
+            }
+            if (target.dataset.editSection === 'publications' && target.dataset.editKey === 'type') {
+                applyArrayEditFields();
+                const pub = getEditTarget('publications', target.dataset.editIndex);
+                if (pub) {
+                    pub.type = normalizePubType(pub.type);
+                    currentPublicationType = normalizePubType(pub.type);
+                    render();
+                }
+            }
+            if (target.dataset.section) {
+                const section = target.dataset.section;
+                const index = Number(target.dataset.index);
+                const key = target.dataset.key;
+                if (siteData[section] && siteData[section][index]) {
+                    siteData[section][index][key] = parseEditorValue(section, key, target.type === 'checkbox' ? target.checked : target.value, target.type);
+                    render();
+                }
+            }
+        });
+
+        document.querySelector('.content').addEventListener('click', event => {
+            const button = event.target.closest('button[data-action]');
+            if (!button) return;
+            const section = button.dataset.section;
+            if (button.dataset.action === 'add') addItem(section, button.dataset.type || '');
+            if (button.dataset.action === 'delete') deleteItem(section, Number(button.dataset.index));
+            if (button.dataset.action === 'edit') beginEdit(section, button.dataset.index);
+            if (button.dataset.action === 'cancel-edit') cancelEdit();
+            if (button.dataset.action === 'confirm-edit') confirmEdit(section, button.dataset.index);
+            if (button.dataset.action === 'move-up') moveItem(section, Number(button.dataset.index), -1);
+            if (button.dataset.action === 'move-down') moveItem(section, Number(button.dataset.index), 1);
+            if (button.dataset.action === 'toggle-ieee-parser') {
+                applyArrayEditFields();
+                showIeeeParser = !showIeeeParser;
+                render();
+            }
+            if (button.dataset.action === 'pub-type') {
+                if (editingKey) {
+                    setStatus('Please confirm or cancel the current edit first');
+                    return;
+                }
+                currentPublicationType = button.dataset.type;
+                editingKey = null;
+                showIeeeParser = false;
+                render();
+            }
+        });
+
+        document.querySelector('.content').addEventListener('dragstart', event => {
+            const card = event.target.closest('[data-drag-section]');
+            if (!card) return;
+            dragState = {
+                section: card.dataset.dragSection,
+                index: Number(card.dataset.dragIndex)
+            };
+            card.classList.add('dragging');
+            if (event.dataTransfer) {
+                event.dataTransfer.effectAllowed = 'move';
+                event.dataTransfer.setData('text/plain', `${dragState.section}:${dragState.index}`);
+            }
+        });
+
+        document.querySelector('.content').addEventListener('dragend', event => {
+            const card = event.target.closest('[data-drag-section]');
+            if (card) card.classList.remove('dragging');
+            dragState = null;
+        });
+
+        document.querySelector('.content').addEventListener('dragover', event => {
+            if (event.target.closest('[data-drag-section]')) event.preventDefault();
+        });
+
+        document.querySelector('.content').addEventListener('drop', event => {
+            const target = event.target.closest('[data-drag-section]');
+            if (!target || !dragState) return;
+            event.preventDefault();
+            const section = target.dataset.dragSection;
+            const index = Number(target.dataset.dragIndex);
+            if (section !== dragState.section) return;
+            moveItemTo(section, dragState.index, index);
+        });
+
+        document.getElementById('importBtn').addEventListener('click', () => document.getElementById('jsonFile').click());
+        document.getElementById('jsonFile').addEventListener('change', event => {
+            const file = event.target.files[0];
+            if (file) importJsonFile(file);
+            event.target.value = '';
+        });
+        document.getElementById('saveDraftBtn').addEventListener('click', saveDraft);
+        document.getElementById('clearDraftBtn').addEventListener('click', clearDraft);
+        document.getElementById('exportBtn').addEventListener('click', exportJson);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const draft = localStorage.getItem(STORAGE_KEY);
+            if (draft) {
+                try {
+                    siteData = JSON.parse(draft);
+                    setStatus('Loaded saved draft');
+                } catch (error) {
+                    setStatus('Draft is invalid. Use Import JSON.');
+                }
+            }
+            ensureShape();
+            render();
+        });
+    </script>
+</body>
+</html>

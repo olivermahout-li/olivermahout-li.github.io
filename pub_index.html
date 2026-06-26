@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学术发表 - Academic Publications</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            background: #f8f9fa;
+            padding: 10px 20px;
+            border-bottom: 2px solid #e0e0e0;
+            gap: 10px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            border: none;
+            background: white;
+            color: #666;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab-button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background: #667eea;
+            color: white;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .filters-container {
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .toggle-filters-btn {
+            width: 100%;
+            padding: 15px 30px;
+            border: none;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1em;
+            font-weight: 500;
+            color: #333;
+            transition: background 0.3s;
+        }
+
+        .toggle-filters-btn:hover {
+            background: #e9ecef;
+        }
+
+        .toggle-filters-btn .arrow {
+            transition: transform 0.3s;
+        }
+
+        .toggle-filters-btn.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .filters {
+            padding: 20px 30px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            display: none;
+        }
+
+        .filters.show {
+            display: block;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-group h3 {
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        .filter-group input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .publications-container {
+            padding: 30px;
+            min-height: 400px;
+        }
+
+        .publication-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            font-weight: 600;
+        }
+
+        .publication-item {
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .publication-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .publication-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        .publication-citation {
+            font-size: 0.95em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .publication-remark {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: 8px;
+            font-size: 0.95em;
+        }
+
+        .publication-authors {
+            font-weight: 500;
+        }
+
+        .publication-title {
+            font-style: italic;
+            color: #667eea;
+        }
+
+        .publication-venue {
+            font-weight: 500;
+        }
+
+        .publication-meta {
+            margin-top: 10px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .badge-position-1 {
+            background: #ff6b6b;
+            color: white;
+            font-weight: 600;
+        }
+
+        .badge-position-2 {
+            background: #ffa502;
+            color: white;
+            font-weight: 500;
+        }
+
+        .badge-position-3 {
+            background: #ffd32a;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .badge-position-other {
+            background: #ffeaa7;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .badge-type {
+            background: #dfe6e9;
+            color: #2d3436;
+        }
+
+        .badge-level {
+            background: #ffeaa7;
+            color: #e17055;
+        }
+
+        .publication-doi-link {
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        .publication-url-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.85em;
+        }
+
+        .publication-url-link:hover {
+            text-decoration: underline;
+        }
+
+        .author-highlight {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .tabs {
+                padding: 10px;
+            }
+
+            .tab-button {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .publications-container {
+                padding: 15px;
+            }
+
+            .publication-item {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>学术发表</h1>
+            <p class="subtitle">Academic Publications</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" data-type="all">全部 (All)</button>
+            <button class="tab-button" data-type="journal">期刊论文 (Journal)</button>
+            <button class="tab-button" data-type="conference">会议论文 (Conference)</button>
+            <button class="tab-button" data-type="book">书籍章节 (Book Chapter)</button>
+            <button class="tab-button" data-type="patent">专利 (Patent)</button>
+        </nav>
+
+        <div class="filters-container">
+            <button class="toggle-filters-btn" onclick="toggleFilters()">
+                <span>筛选器</span>
+                <span class="arrow">▼</span>
+            </button>
+            
+            <div class="filters" id="filtersPanel">
+                <div class="filter-group">
+                    <h3>论文类型</h3>
+                    <label><input type="checkbox" value="journal" class="filter-type" checked> 期刊 (Journal)</label>
+                    <label><input type="checkbox" value="conference" class="filter-type" checked> 会议 (Conference)</label>
+                    <label><input type="checkbox" value="book" class="filter-type" checked> 书籍章节 (Book)</label>
+                    <label><input type="checkbox" value="patent" class="filter-type" checked> 专利 (Patent)</label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>作者排序</h3>
+                    <label><input type="checkbox" value="1" class="filter-position" checked> 第一作者</label>
+                    <label><input type="checkbox" value="2" class="filter-position" checked> 第二作者</label>
+                    <label><input type="checkbox" value="3" class="filter-position" checked> 第三作者</label>
+                    <label><input type="checkbox" value="4+" class="filter-position" checked> 第四作者及以后</label>
+                </div>
+
+                <div class="filter-group">
+                    <h3>出处 (期刊/会议)</h3>
+                    <div id="venueFilters"></div>
+                </div>
+
+                <div class="filter-actions">
+                    <button onclick="applyFilters()" class="btn-primary">应用筛选</button>
+                    <button onclick="resetFilters()" class="btn-secondary">重置</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publications-container">
+            <div id="publicationsList"></div>
+            <div id="noResults" class="no-results" style="display: none;">
+                没有找到符合条件的论文
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                <a href="index.html">← 学术主页</a>
+                <span style="margin: 0 15px; color: #ccc;">|</span>
+                <a href="pub_admin.html">论文管理页面</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        let allPublications = [];
+        let filteredPublications = [];
+        let currentTab = 'all';
+
+        function cacheBustedUrl(path) {
+            const sep = path.includes('?') ? '&' : '?';
+            return `${path}${sep}v=${Date.now()}`;
+        }
+
+        // 页面加载时获取数据
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPublications();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    currentTab = button.dataset.type;
+                    applyFilters();
+                });
+            });
+
+            document.querySelectorAll('.filter-type, .filter-position').forEach(checkbox => {
+                checkbox.addEventListener('change', applyFilters);
+            });
+        }
+
+        function toggleFilters() {
+            const filtersPanel = document.getElementById('filtersPanel');
+            const toggleBtn = document.querySelector('.toggle-filters-btn');
+            
+            if (filtersPanel.classList.contains('show')) {
+                filtersPanel.classList.remove('show');
+                toggleBtn.classList.remove('active');
+            } else {
+                filtersPanel.classList.add('show');
+                toggleBtn.classList.add('active');
+            }
+        }
+
+        async function loadPublications() {
+            // 首先尝试从整合的 siteData.json 加载（新格式）
+            try {
+                const response = await fetch(cacheBustedUrl('data/siteData.json'), { cache: 'no-store' });
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.publications && data.publications.length > 0) {
+                        allPublications = data.publications;
+                        console.log('✅ 论文数据已从 siteData.json 加载（新格式）');
+                    }
+                }
+            } catch (error) {
+                console.log('⚠️ siteData.json 加载失败');
+            }
+            
+            // 如果新格式没有数据，尝试旧格式 publications.json（向后兼容）
+            if (!allPublications || allPublications.length === 0) {
+                try {
+                    const response = await fetch(cacheBustedUrl('data/publications.json'), { cache: 'no-store' });
+                    if (response.ok) {
+                        allPublications = await response.json();
+                        console.log('✅ 论文数据已从 publications.json 加载（旧格式）');
+                    }
+                } catch (error) {
+                    console.log('⚠️ publications.json 不存在');
+                }
+            }
+            
+            // 如果JSON加载失败或为空，使用localStorage（用于本地）
+            if (!allPublications || allPublications.length === 0) {
+                const data = localStorage.getItem('publications');
+                if (data) {
+                    allPublications = JSON.parse(data);
+                    console.log('✅ 论文数据已从localStorage加载');
+                } else if (localStorage.getItem('academicSiteDataSettingDraft')) {
+                    const draft = JSON.parse(localStorage.getItem('academicSiteDataSettingDraft'));
+                    allPublications = draft.publications || [];
+                    console.log('✅ 论文数据已从setting草稿加载');
+                } else {
+                    console.log('ℹ️ 使用默认示例数据');
+                    // 使用示例数据
+                    allPublications = [
+                    {
+                        id: "1",
+                        type: "journal",
+                        title: "Deep Learning Applications in Natural Language Processing",
+                        authors: ["Y. Li", "C. Gu", "J. Mao"],
+                        authorPosition: 1,
+                        venue: "IEEE Transactions on Neural Networks",
+                        journalLevel: "中科院1区TOP",
+                        volume: "34",
+                        issue: "5",
+                        pages: "1234-1245",
+                        year: 2023,
+                        month: 6,
+                        doi: "10.1109/TNNLS.2023.12345",
+                        url: "https://ieeexplore.ieee.org/document/12345",
+                        remark: "Best Paper Award"
+                    },
+                    {
+                        id: "2",
+                        type: "conference",
+                        title: "A Novel Approach to Machine Translation",
+                        authors: ["C. Gu", "Y. Li", "J. Mao"],
+                        authorPosition: 2,
+                        venue: "ACL 2023",
+                        confCity: "Toronto",
+                        confCountry: "Canada",
+                        pages: "456-467",
+                        year: 2023,
+                        month: 7,
+                        doi: "10.18653/v1/2023.acl-long.123",
+                        url: "https://aclanthology.org/2023.acl-long.123/"
+                    },
+                    {
+                        id: "3",
+                        type: "book",
+                        title: "Fundamentals of Artificial Intelligence",
+                        authors: ["W. Wang", "Y. Li", "J. Liu", "X. Chen"],
+                        authorPosition: 2,
+                        venue: "Springer",
+                        chapter: "Chapter 5: Neural Networks",
+                        pages: "89-120",
+                        year: 2022,
+                        month: 3,
+                        doi: "10.1007/978-3-030-12345-6_5",
+                        url: "https://link.springer.com/chapter/10.1007/978-3-030-12345-6_5"
+                    },
+                    {
+                        id: "4",
+                        type: "patent",
+                        title: "System and Method for Intelligent Text Analysis",
+                        authors: ["Y. Li", "C. Gu"],
+                        authorPosition: 1,
+                        venue: "CN Patent",
+                        patentNumber: "CN123456789A",
+                        patentStatus: "授权",
+                        year: 2023,
+                        month: 1,
+                        url: "https://patents.google.com/patent/CN123456789A"
+                    }
+                ];
+                }
+            }
+            
+            // 按作者顺序优先，同一作者顺序再按发表时间排序
+            allPublications.sort((a, b) => {
+                // 首先按作者顺序排序
+                if (a.authorPosition !== b.authorPosition) {
+                    return a.authorPosition - b.authorPosition;
+                }
+                // 同一作者顺序，按年份排序（新到旧）
+                if (b.year !== a.year) {
+                    return b.year - a.year;
+                }
+                // 如果年份相同，按月份排序（新到旧）
+                const aMonth = a.month || 0;
+                const bMonth = b.month || 0;
+                return bMonth - aMonth;
+            });
+            
+            setupVenueFilters();
+            applyFilters();
+        }
+
+        function setupVenueFilters() {
+            const venues = [...new Set(allPublications.map(pub => pub.venue))].sort();
+            const venueFiltersDiv = document.getElementById('venueFilters');
+            
+            venueFiltersDiv.innerHTML = venues.map(venue => `
+                <label>
+                    <input type="checkbox" value="${venue}" class="filter-venue" checked>
+                    ${venue}
+                </label>
+            `).join('');
+            
+            document.querySelectorAll('.filter-venue').forEach(checkbox => {
+                checkbox.addEventListener('change', applyFilters);
+            });
+        }
+
+        function applyFilters() {
+            const selectedTypes = Array.from(document.querySelectorAll('.filter-type:checked'))
+                .map(cb => cb.value);
+            const selectedPositions = Array.from(document.querySelectorAll('.filter-position:checked'))
+                .map(cb => cb.value);
+            const selectedVenues = Array.from(document.querySelectorAll('.filter-venue:checked'))
+                .map(cb => cb.value);
+            
+            filteredPublications = allPublications.filter(pub => {
+                if (currentTab !== 'all' && pub.type !== currentTab) return false;
+                if (!selectedTypes.includes(pub.type)) return false;
+                
+                const position = pub.authorPosition <= 3 ? pub.authorPosition.toString() : '4+';
+                if (!selectedPositions.includes(position)) return false;
+                if (!selectedVenues.includes(pub.venue)) return false;
+                
+                return true;
+            });
+            
+            displayPublications();
+        }
+
+        function displayPublications() {
+            const container = document.getElementById('publicationsList');
+            const noResults = document.getElementById('noResults');
+            
+            if (filteredPublications.length === 0) {
+                container.innerHTML = '';
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            noResults.style.display = 'none';
+            
+            const groups = {
+                'book': { title: '书籍章节 (Book Chapters)', items: [] },
+                'journal': { title: '期刊论文 (Journal Articles)', items: [] },
+                'conference': { title: '会议论文 (Conference Papers)', items: [] },
+                'patent': { title: '专利 (Patents)', items: [] }
+            };
+            
+            filteredPublications.forEach(pub => groups[pub.type].items.push(pub));
+            
+            let html = '';
+            
+            Object.keys(groups).forEach(type => {
+                const group = groups[type];
+                if (group.items.length > 0) {
+                    html += `<div class="publication-section">`;
+                    html += `<h2 class="section-title">${group.title}</h2>`;
+                    // 每个类型单独标号
+                    let typeNumber = 1;
+                    group.items.forEach(pub => {
+                        html += formatPublication(pub, typeNumber++);
+                    });
+                    html += `</div>`;
+                }
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function formatPublication(pub, number) {
+            const citation = generateCitation(pub);
+            const positionText = getPositionText(pub.authorPosition);
+            const positionClass = getPositionBadgeClass(pub.authorPosition);
+            
+            // 构建meta行的内容（包括badge、DOI和链接）
+            let metaContent = `
+                <span class="badge ${positionClass}">${positionText}</span>
+                <span class="badge badge-type">${getTypeText(pub.type)}</span>
+            `;
+            
+            if (pub.doi) {
+                metaContent += `<span class="publication-doi-link">DOI: ${pub.doi}</span>`;
+            }
+            
+            if (pub.url) {
+                metaContent += `<a href="${pub.url}" target="_blank" class="publication-url-link">🔗 Link</a>`;
+            }
+            
+            // 如果是期刊且有等级信息，添加等级badge（放在最后）
+            if (pub.type === 'journal' && pub.journalLevel) {
+                metaContent += `<span class="badge badge-level">${pub.journalLevel}</span>`;
+            }
+            
+            return `
+                <div class="publication-item">
+                    <span class="publication-number">${number}</span>
+                    <div style="display: inline-block; width: calc(100% - 50px); vertical-align: top;">
+                        <div class="publication-citation">${citation}</div>
+                        <div class="publication-meta">
+                            ${metaContent}
+                        </div>
+                        ${pub.remark ? `<div class="publication-remark">🏆 ${pub.remark}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateCitation(pub) {
+            let citation = '';
+            
+            // 处理作者列表：最后一个作者用 and 连接，并高亮当前用户的名字
+            const authorPosition = pub.authorPosition;
+            const formattedAuthors = pub.authors.map((author, index) => {
+                if (index === authorPosition - 1) {
+                    // 高亮当前用户
+                    return `<span class="author-highlight">${author}</span>`;
+                }
+                return author;
+            });
+            
+            let authorsStr = '';
+            if (formattedAuthors.length === 1) {
+                authorsStr = formattedAuthors[0];
+            } else if (formattedAuthors.length === 2) {
+                authorsStr = formattedAuthors[0] + ' and ' + formattedAuthors[1];
+            } else {
+                authorsStr = formattedAuthors.slice(0, -1).join(', ') + ' and ' + formattedAuthors[formattedAuthors.length - 1];
+            }
+            
+            citation += `<span class="publication-authors">${authorsStr}</span>. `;
+            citation += `<span class="publication-title">"${pub.title}"</span>. `;
+            
+            // 生成英文格式的时间字符串
+            const monthNames = ['', 'January', 'February', 'March', 'April', 'May', 'June', 
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            const dateStr = pub.month ? `${monthNames[pub.month]} ${pub.year}` : `${pub.year}`;
+            
+            switch (pub.type) {
+                case 'journal':
+                    citation += `<span class="publication-venue">${pub.venue}</span>`;
+                    if (pub.volume) citation += `, vol. ${pub.volume}`;
+                    if (pub.issue) citation += `, no. ${pub.issue}`;
+                    if (pub.pages) citation += `, pp. ${pub.pages}`;
+                    citation += `, ${dateStr}.`;
+                    break;
+                case 'conference':
+                    citation += `in <span class="publication-venue">${pub.venue}</span>`;
+                    if (pub.confCity || pub.confCountry) {
+                        const location = [pub.confCity, pub.confCountry].filter(Boolean).join(', ');
+                        citation += ` (${location})`;
+                    }
+                    if (pub.pages) citation += `, pp. ${pub.pages}`;
+                    citation += `, ${dateStr}.`;
+                    break;
+                case 'book':
+                    citation += `in <span class="publication-venue">${pub.venue}</span>`;
+                    if (pub.chapter) citation += `, ${pub.chapter}`;
+                    if (pub.pages) citation += `, pp. ${pub.pages}`;
+                    citation += `, ${dateStr}.`;
+                    break;
+                case 'patent':
+                    citation += `<span class="publication-venue">${pub.venue}</span>`;
+                    if (pub.patentNumber) citation += `, ${pub.patentNumber}`;
+                    if (pub.patentStatus) citation += ` [${pub.patentStatus}]`;
+                    citation += `, ${dateStr}.`;
+                    break;
+            }
+            
+            return citation;
+        }
+
+        function getPositionText(position) {
+            const chineseNumbers = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+            if (position <= 10) {
+                return `第${chineseNumbers[position]}作者`;
+            }
+            return `第${position}作者`;
+        }
+
+        function getPositionBadgeClass(position) {
+            if (position === 1) return 'badge-position-1';
+            if (position === 2) return 'badge-position-2';
+            if (position === 3) return 'badge-position-3';
+            return 'badge-position-other';
+        }
+
+        function getTypeText(type) {
+            const types = { 'journal': '期刊', 'conference': '会议', 'book': '书籍章节', 'patent': '专利' };
+            return types[type] || type;
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('.filter-type, .filter-position, .filter-venue').forEach(cb => {
+                cb.checked = true;
+            });
+            applyFilters();
+        }
+    </script>
+</body>
+</html>
